@@ -1,12 +1,14 @@
 import axios from "axios";
 import HomeCard from "./HomeCard";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function Home(props) {
 
     var nextHandler;
     var prevHandler;
+    var handleDelete;
+    var searchRaza;
 
     const [dataApi, setDataApi] = useState([]);
     const [items, setItems] = useState([]);
@@ -23,8 +25,6 @@ function Home(props) {
             });
 
     }
-
-    console.log(dataApi);
 
 
     if (Array.isArray(dataApi) && dataApi.length) {
@@ -67,6 +67,21 @@ function Home(props) {
 
         };
 
+        searchRaza = (e) => {
+
+            setItems([...dataApi].filter((dato) => {
+                return dato.name.includes(e.target.value);
+            }))
+
+            console.log(items)
+
+            setCurrentPage(0)
+        };
+
+        handleDelete = () => {
+            window.location.reload(true);
+        };
+
         return (
 
             <div className='home-color'>
@@ -94,15 +109,24 @@ function Home(props) {
 
                         </div>
 
-                        <select>
+                        <select onClick={searchRaza}>
 
-                            <option>Busca por Temperamento</option>
+                            <option>Busca por Raza</option>
+
+                            {dataApi && dataApi.map((dog) => {
+                                return (
+                                    <option>
+                                        {dog.name}
+                                    </option>
+                                )
+                            })
+                            }
 
                         </select>
 
                         <select>
 
-                            <option>Busca por Raza</option>
+                            <option>Busca por Nombre</option>
 
                         </select>
 
@@ -115,20 +139,22 @@ function Home(props) {
                         </button>
 
                         <button className="bgc-azul">
-                            Ordena por temperamento
+                            Ordena por rating Menor-Mayor
                         </button>
 
                         <button className="bgc-azul">
-                            Ordena por peso
+                            Ordena por rating Mayor-Menor
                         </button>
 
-                        <button className="bgc-verde">Refresh</button>
+                        <button onClick={handleDelete} className="bgc-verde">Refresh</button>
 
                     </div>
 
-                    <div className="home-cards">
+
+                    <div className='home-cards'>
 
                         {
+
                             items && items.map((dog) => {
 
 
@@ -141,14 +167,15 @@ function Home(props) {
                                 )
 
                             })
+
                         }
 
                     </div>
 
                     <div className='home-paginado'>
-                        <button className="bgc-gris" onClick={prevHandler}>Prev</button>
+                        <button onClick={prevHandler} className="bgc-gris">Prev</button>
                         {currentPage}
-                        <button className="bgc-gris" onClick={nextHandler}>Next</button>
+                        <button onClick={nextHandler} className="bgc-gris">Next</button>
                     </div>
 
                 </main>
