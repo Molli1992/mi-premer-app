@@ -1,24 +1,83 @@
-.landing-page {
-    display: flex;
-    justify-content: center;
+.hero {
     height: 100vh;
-    align-items: center;
-    background-image: url("../imagenes/perrosCaricaturas.webp");
-    background-position: center;
+    width: 100%;
+    background-image: url("../imagenes/hotel-agua.jpg");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
+    position: relative;
 }
 
-.button-landing {
-    background-color: black;
-    color: green;
-    text-transform: uppercase;
-    font-size: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
+nav {
+    display: flex;
+    padding: 1% 6%;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.button-landing:hover {
-    transform: scale(1.05) translateY(-5px);
+nav a {
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-link {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-link ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-link ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-link ul li.btn {
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #fff;
+    color: rgb(43, 2, 2);
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-link ul li.btn:hover {
+    color: #fff;
+    background-color: #1e90ff;
+}
+
+.nav-link ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #e7b907;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-link ul li a:hover::after {
+    width: 100%;
+}
+
+.hero .content {
+    text-align: center;
+}
+
+.hero .content h1 {
+    font-size: 64px;
+    margin-top: 12%;
+    color: #fff;
 }

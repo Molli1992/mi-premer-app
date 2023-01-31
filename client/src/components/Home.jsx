@@ -70,7 +70,7 @@ function Home(props) {
         searchRaza = (e) => {
 
             setItems([...dataApi].filter((dato) => {
-                return dato.name.includes(e.target.value);
+                return dato.name === e.target.value;
             }))
 
             console.log(items)
@@ -109,7 +109,7 @@ function Home(props) {
 
                         </div>
 
-                        <select onClick={searchRaza}>
+                        <select onChange={searchRaza}>
 
                             <option>Busca por Raza</option>
 
