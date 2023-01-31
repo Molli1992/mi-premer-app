@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
-function LandingPage() {
+function LandingPage(props) {
     return (
 
         <section className="hero">
