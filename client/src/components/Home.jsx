@@ -2,6 +2,7 @@ import "./Home.css";
 import HomeCard from "./HomeCard";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import { Button, Stack, Input, InputGroup, InputLeftAddon, Select } from '@chakra-ui/react'
 
 function Home(props) {
 
@@ -63,7 +64,7 @@ function Home(props) {
     const handleSearchName = (e) => {
 
         setItems([...dataApi].filter((dato) => {
-            return dato.name.toLowerCase().includes(e.target.value.toLowerCase())
+            return dato.city.toLowerCase().includes(e.target.value.toLowerCase())
         }))
 
         setCurrentPage(0);
@@ -87,16 +88,12 @@ function Home(props) {
 
     console.log(items);
 
-    const handleDelete = (e) => {
-        window.location.reload(true);
-    };
-
     return (
         <div className='home-color'>
 
             <div className='home-banner'>
-                <h1 className='h-1'>Ibera Network</h1>
-
+                <h1 className='h-1'>Enjoy you dream</h1>
+                <h1 className='h-1'>vacation Ibera</h1>
             </div>
 
             <main>
@@ -106,16 +103,17 @@ function Home(props) {
                     <div className='home-page'>
 
                         <div>
-                            <label>Search</label>
-                            <input placeholder='Search' name='search'
-                                onChange={handleSearchName} />
+                            <Stack spacing={4}>
+                                <InputGroup>
+                                    <InputLeftAddon children='Search' />
+                                    <Input type='tel' onChange={handleSearchName} />
+                                </InputGroup>
+                            </Stack>
                         </div>
 
                     </div>
 
-                    <select onChange={handleSearch}>
-
-                        <option>Search by name</option>
+                    <Select placeholder='Search by name' color="black" onChange={handleSearch}>
 
                         {hoteles && hoteles.map((hotel) => {
                             return (
@@ -125,9 +123,7 @@ function Home(props) {
                             );
                         })}
 
-                    </select>
-
-                    <button onClick={handleDelete} className="button">Refresh</button>
+                    </Select>
 
                 </div>
 
@@ -157,10 +153,12 @@ function Home(props) {
             </main>
 
             <div className='home-paginado'>
-                <button className="button" onClick={prevHandler}>Prev</button>
+                <Button colorScheme='blue' onClick={prevHandler}>Prev</Button>
                 {currentPage}
-                <button className="button" onClick={nextHandler}>Next</button>
+                <Button colorScheme='blue' onClick={nextHandler}>Next</Button>
             </div>
+
+
 
         </div>
     )

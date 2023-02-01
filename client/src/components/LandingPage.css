@@ -40,25 +40,6 @@ nav a {
     font-size: 14px;
 }
 
-.nav-link ul li.btn {
-    display: inline-block;
-    width: 60px;
-    height: 25px;
-    line-height: 25px;
-    background-color: #fff;
-    color: rgb(43, 2, 2);
-    text-align: center;
-    font-size: 14px;
-    text-decoration: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.nav-link ul li.btn:hover {
-    color: #fff;
-    background-color: #1e90ff;
-}
-
 .nav-link ul li a::after {
     content: "";
     width: 0%;

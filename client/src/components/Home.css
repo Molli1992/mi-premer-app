@@ -1,25 +1,17 @@
 .home-color {
-
-    background-color: rgb(0, 0, 10);
-
-}
-
-.home-banner {
-    height: 400px;
-    background-image: url("../imagenes/hotel-desayuno.jpg");
+    height: 200vh;
+    width: 100%;
+    background-image: url("../imagenes/oceano-bonito.jpg");
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: relative;
 }
 
 .home-banner h1 {
-    color: rgb(81, 13, 190);
+    color: rgb(10, 10, 10);
     text-shadow: 0px 30px 30px rgba(0, 0, 0, 0.3);
+    font-size: 80px;
 }
 
 .home-filters {
