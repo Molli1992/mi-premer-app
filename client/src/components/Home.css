@@ -1,0 +1,66 @@
+.home-color {
+
+    background-color: rgb(0, 0, 10);
+
+}
+
+.home-banner {
+    height: 400px;
+    background-image: url("../imagenes/hotel-desayuno.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-banner h1 {
+    color: rgb(81, 13, 190);
+    text-shadow: 0px 30px 30px rgba(0, 0, 0, 0.3);
+}
+
+.home-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 24px;
+    column-gap: 10px;
+    row-gap: 20px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+
+main {
+    max-width: 1024px;
+    margin: auto;
+}
+
+.home-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.button {
+    background-color: rgb(115, 143, 143);
+    color: black;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #1e90ff;
+}
+
+.home-paginado {
+    color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

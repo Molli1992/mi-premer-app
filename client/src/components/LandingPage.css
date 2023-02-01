@@ -16,9 +16,10 @@ nav {
 }
 
 nav a {
-    font-size: 24px;
+    font-size: 35px;
     text-decoration: none;
     font-weight: bold;
+    color: rgb(131, 127, 121);
 }
 
 .nav-link {
