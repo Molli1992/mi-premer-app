@@ -41,7 +41,7 @@ function Home(props) {
 
         const firstIndex = nextPage * ITEMS_PER_PAGE;
 
-        if (nextPage >= totalElementos / ITEMS_PER_PAGE) return;
+        if (nextPage >= totalElementos / ITEMS_PER_PAGE || items.length <= 5 || items.length >= 7) return;
 
         setItems([...dataApi].splice(firstIndex, ITEMS_PER_PAGE))
         setCurrentPage(nextPage);
@@ -130,6 +130,9 @@ function Home(props) {
                     </Select>
 
                     <Button colorScheme='blue' onClick={refresh}>Refresh</Button>
+                    <Link to={"/"}>
+                        <Button colorScheme='blue'>Landing Page</Button>
+                    </Link>
 
                 </div>
 

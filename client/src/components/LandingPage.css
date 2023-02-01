@@ -8,6 +8,16 @@
     position: relative;
 }
 
+.logo {
+    height: 20vh;
+    width: 20%;
+    background-image: url("../imagenes/imagenSinFondo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
 nav {
     display: flex;
     padding: 1% 6%;

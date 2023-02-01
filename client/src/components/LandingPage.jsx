@@ -9,16 +9,12 @@ function LandingPage(props) {
 
             <nav>
 
-                <div className="logo">
-
-                    <a href="/home"><span>Hotel Ibera</span></a>
-
-                </div>
+                <div className="logo"></div>
 
                 <div className="nav-link">
 
                     <ul>
-                        <li><a href="/home">Home</a></li>
+                        <li><a href="/home">Destination</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/contact">Contact</a></li>
                         <Link to={"/logging"}>

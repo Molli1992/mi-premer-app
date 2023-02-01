@@ -28,11 +28,22 @@ function CardDetail(props) {
 
             <Card maxW='sm'>
                 <CardBody>
+
                     <Image
                         src={dataApi[id].img}
                         alt='Green double couch with wooden legs'
                         borderRadius='lg'
                     />
+
+                    <div>
+                        <Button variant='ghost' colorScheme='blue'>
+                            prev
+                        </Button>
+                        <Button variant='ghost' colorScheme='blue'>
+                            next
+                        </Button>
+                    </div>
+
                     <Stack mt='6' spacing='3'>
                         <Heading size='md'>{dataApi[id].name}</Heading>
                         <Text>
