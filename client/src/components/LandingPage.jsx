@@ -23,7 +23,7 @@ function LandingPage(props) {
                         <li><a href="/contact">Contact</a></li>
                         <Link to={"/logging"}>
                             <ButtonGroup variant='outline' spacing='6'>
-                                <Button colorScheme='blue'>logging</Button>
+                                <Button color="yellow" colorScheme='blue'>logging</Button>
                             </ButtonGroup>
                         </Link>
                     </ul>
