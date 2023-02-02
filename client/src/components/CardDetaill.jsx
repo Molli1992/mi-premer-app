@@ -1,5 +1,4 @@
 import { Card, Divider, CardBody, CardFooter, Text, Button, Stack, ButtonGroup, Heading, Image } from '@chakra-ui/react';
-import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 

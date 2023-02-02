@@ -16,7 +16,9 @@ function LandingPage(props) {
                     <ul>
                         <Link to={"/home"}>
                             <ButtonGroup variant='outline' spacing='6'>
-                                <Button color="yellow" colorScheme='blue'>Home</Button>
+                                <Button color="yellow" _hover={{
+                                    transform: 'scale(1.15)',
+                                }}>Home</Button>
                             </ButtonGroup>
                         </Link>
                     </ul>
