@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button, ButtonGroup } from '@chakra-ui/react';
 
 function LandingPage(props) {
     return (
@@ -14,12 +14,9 @@ function LandingPage(props) {
                 <div className="nav-link">
 
                     <ul>
-                        <li><a href="/home">Destination</a></li>
-                        <li><a href="/activities">Activities</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                        <Link to={"/logging"}>
+                        <Link to={"/home"}>
                             <ButtonGroup variant='outline' spacing='6'>
-                                <Button color="yellow" colorScheme='blue'>logging</Button>
+                                <Button color="yellow" colorScheme='blue'>Home</Button>
                             </ButtonGroup>
                         </Link>
                     </ul>

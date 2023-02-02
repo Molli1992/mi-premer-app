@@ -1,38 +1,38 @@
-import "./HomeCard.css";
 import React from 'react';
+import { Card, CardBody, Image, Stack, Heading, Text } from '@chakra-ui/react';
 
 function HomeCard(props) {
 
-
     return (
-        <article key="" className="card">
 
-            <div className="card-header">
-                <img src={props.img} alt="" />
-            </div>
+        <div className='home-card'>
 
-            <div className="card-info">
-                <ul>
+            <Card maxW='sm' _hover={{
+                bg: 'green.500',
+                transform: 'scale(0.95)',
+            }}>
+                <CardBody>
+                    <Image
+                        src={props.img}
+                        alt='Green double couch with wooden legs'
+                        borderRadius='lg'
+                    />
+                    <Stack mt='6' spacing='3'>
+                        <Heading size='md'>{props.name}</Heading>
+                        <Text>
+                            City: {props.city}
+                        </Text>
+                        <Text>
+                            Rating: {props.rating}
+                        </Text>
+                    </Stack>
+                </CardBody>
+            </Card>
 
-                    <li>
-                        <span>
-                            Name:
-                        </span>
-                        {props.name}
-                    </li>
+        </div >
 
-                    <li>
-                        <span>
-                            City:
-                        </span>
-                        {props.city}
-                    </li>
-
-                </ul>
-            </div>
-
-        </article>
     )
-}
+};
 
 export default HomeCard;
+
