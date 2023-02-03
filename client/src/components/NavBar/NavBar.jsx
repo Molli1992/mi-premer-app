@@ -14,7 +14,7 @@ function NavBar(props) {
             <div className="nav-items">
                 <a href="/destination">Destination</a>
                 <a href="/about">About</a>
-                <a href="/logging">Logging</a>
+                <a href="/login">Login</a>
             </div>
 
         </div>
