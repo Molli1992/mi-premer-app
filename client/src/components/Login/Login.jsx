@@ -12,10 +12,24 @@ function Login(props) {
     });
 
     const date = [];
+    const month = [];
+    const year = [];
 
     if (!date.length) {
-        for (let i = 1; i < 31; i++) {
+        for (let i = 1; i < 32; i++) {
             date.push([i])
+        }
+    };
+
+    if (!month.length) {
+        for (let i = 1; i < 13; i++) {
+            month.push([i])
+        }
+    };
+
+    if (!year.length) {
+        for (let i = 1900; i < 2024; i++) {
+            year.push([i])
         }
     };
 
@@ -32,7 +46,7 @@ function Login(props) {
 
     };
 
-    const onChangeGeneros = (e) => {
+    const onChangeBirthdate = (e) => {
 
         setInput({
             ...input,
@@ -173,20 +187,57 @@ function Login(props) {
 
             </FormControl>
 
-            <select onChange={onChangeGeneros}>
+            <div>
 
-                <option>Date of Birthday:</option>
+                <label>
+                    Birthday:
+                </label>
 
-                {date && date.map((g) => {
-                    return (
-                        <option>
-                            {g}
-                        </option>
-                    );
-                })}
+                <select onChange={onChangeBirthdate}>
 
-            </select>
-            {input.birthdate}  <button onClick={BorrarGenero}>Borrar</button>
+                    <option>Date</option>
+
+                    {date && date.map((d) => {
+                        return (
+                            <option>
+                                {d}
+                            </option>
+                        );
+                    })}
+
+                </select>
+
+                <select onChange={onChangeBirthdate}>
+
+                    <option>Month</option>
+
+                    {month && month.map((m) => {
+                        return (
+                            <option>
+                                {m}
+                            </option>
+                        );
+                    })}
+
+                </select>
+
+
+
+                <select onChange={onChangeBirthdate}>
+
+                    <option>Year</option>
+
+                    {year && year.map((y) => {
+                        return (
+                            <option>
+                                {y}
+                            </option>
+                        );
+                    })}
+
+                </select>
+
+            </div>
 
         </div>
 
