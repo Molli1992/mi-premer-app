@@ -8,7 +8,7 @@ function Login(props) {
         email: "",
         name: "",
         lastName: "",
-        birthdate: ""
+        birthday: ""
     });
 
     const date = [];
@@ -33,8 +33,6 @@ function Login(props) {
         }
     };
 
-    console.log(date);
-
     const handleInputChange = (e) => {
 
         setInput({
@@ -46,13 +44,13 @@ function Login(props) {
 
     };
 
-    const onChangeBirthdate = (e) => {
+    const onChangeBirthday = (e) => {
 
         setInput({
             ...input,
-            birthdate: `${input.birthdate}, ${e.target.value}`
+            birthday: `${input.birthday}/${e.target.value}`
         });
-        console.log(input.birthdate)
+        console.log(input.birthday)
 
     };
 
@@ -103,6 +101,17 @@ function Login(props) {
 
     if (input.lastName.length >= 3) {
         errosLNsuccessful = "error"
+    };
+
+    var errosBirthday = "";
+    var errosBsuccessful = "";
+
+    if (input.birthday.length > 0 && input.birthday.length < 7 && input.birthday.length < 13) {
+        errosBirthday = "error"
+    };
+
+    if (input.birthday.length >= 8 && input.birthday.length <= 12) {
+        errosBsuccessful = "error"
     };
 
     return (
@@ -185,15 +194,35 @@ function Login(props) {
                     <FormErrorMessage></FormErrorMessage>
                 )}
 
+                <FormLabel>Birthday</FormLabel>
+                <Input type='text' value={input.birthday} name="birthday " onChange={handleInputChange} />
+                {!errosBirthday && !errosBsuccessful ? (
+                    <FormHelperText>
+                        Complete Birthday.
+                    </FormHelperText>
+                ) : (
+                    <FormErrorMessage></FormErrorMessage>
+                )}
+                {errosBirthday ? (
+                    <FormHelperText>
+                        Error: Birthday Ej, 22/05/1992
+                    </FormHelperText>
+                ) : (
+                    <FormErrorMessage></FormErrorMessage>
+                )}
+                {errosBsuccessful ? (
+                    <FormHelperText>
+                        Successful
+                    </FormHelperText>
+                ) : (
+                    <FormErrorMessage></FormErrorMessage>
+                )}
+
             </FormControl>
 
             <div>
 
-                <label>
-                    Birthday:
-                </label>
-
-                <select onChange={onChangeBirthdate}>
+                <select onChange={onChangeBirthday}>
 
                     <option>Date</option>
 
@@ -207,7 +236,7 @@ function Login(props) {
 
                 </select>
 
-                <select onChange={onChangeBirthdate}>
+                <select onChange={onChangeBirthday}>
 
                     <option>Month</option>
 
@@ -223,7 +252,7 @@ function Login(props) {
 
 
 
-                <select onChange={onChangeBirthdate}>
+                <select onChange={onChangeBirthday}>
 
                     <option>Year</option>
 
