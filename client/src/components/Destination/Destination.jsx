@@ -1,10 +1,11 @@
-import "./Home.css";
-import HomeCard from "./HomeCard";
+import "./Destination.css";
+import DestinationCard from "./DestinationCard";
+import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { Button, Stack, Input, InputGroup, InputLeftAddon, Select } from '@chakra-ui/react'
 
-function Home(props) {
+function Destination(props) {
 
     const dataApi = [{ id: "0", rating: "4", name: "Hotel Ibera Pilar", city: "Buenos Aires, Pilar", img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/158648688.jpg?k=06fc0b28c9fcf97df6a6fd766b9e340f7e87dbc2236bafb5367ed6d8a202eab4&o=&hp=1" },
     { id: "1", rating: "4", name: "Hotel Ibera Cordoba", city: "Cordoba, Capital", img: "https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/36/37/363786_v3.jpeg" },
@@ -95,6 +96,8 @@ function Home(props) {
     return (
         <div className='home-color'>
 
+            <NavBar />
+
             <div className='home-banner'>
                 <h1 className='h-1'>Enjoy you dream</h1>
                 <h1 className='h-1'>vacation Ibera</h1>
@@ -143,8 +146,8 @@ function Home(props) {
 
                             return (
 
-                                <Link to={"/home/" + hotel.id}>
-                                    <HomeCard img={hotel.img} name={hotel.name}
+                                <Link to={"/destination/" + hotel.id}>
+                                    <DestinationCard img={hotel.img} name={hotel.name}
                                         city={hotel.city} rating={hotel.rating} />
                                 </Link>
 
@@ -171,4 +174,4 @@ function Home(props) {
 
 };
 
-export default Home;
+export default Destination;

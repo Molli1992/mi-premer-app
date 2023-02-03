@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-bar {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #5265c4;
+}
+
+.nav-bar>.nav-logo {
+    height: 8vh;
+    width: 8%;
+    background-image: url("../../imagenes/imagenSinFondo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.nav-bar>.nav-items>a {
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 15px;
+    position: relative;
+    opacity: 0.9;
+}
+
+.nav-bar>.nav-items>a:hover {
+    opacity: 1;
+}
+
+.nav-bar>.nav-items>a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: all .45s;
+}
+
+.nav-bar>.nav-items>a:hover::before {
+    width: 100%;
+}

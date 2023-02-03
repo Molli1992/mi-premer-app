@@ -1,5 +1,6 @@
 import { Card, Divider, CardBody, CardFooter, Text, Button, Stack, ButtonGroup, Heading, Image } from '@chakra-ui/react';
 import { useParams, Link } from 'react-router-dom';
+import NavBar from "../NavBar/NavBar";
 
 
 function CardDetail(props) {
@@ -24,6 +25,8 @@ function CardDetail(props) {
     return (
 
         <div>
+
+            <NavBar />
 
             <Card maxW='sm'>
                 <CardBody>
@@ -65,11 +68,6 @@ function CardDetail(props) {
                         <Button variant='ghost' colorScheme='blue'>
                             Add to cart
                         </Button>
-                        <Link to={"/home"}>
-                            <Button variant='ghost' colorScheme='blue'>
-                                Home
-                            </Button>
-                        </Link>
                     </ButtonGroup>
                 </CardFooter>
             </Card>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody, Image, Stack, Heading, Text } from '@chakra-ui/react';
 
-function HomeCard(props) {
+function DestinationCard(props) {
 
     return (
 
@@ -34,5 +34,5 @@ function HomeCard(props) {
     )
 };
 
-export default HomeCard;
+export default DestinationCard;
 

@@ -14,11 +14,13 @@ function LandingPage(props) {
                 <div className="nav-link">
 
                     <ul>
-                        <Link to={"/home"}>
+                        <li><a href="/destination">Destination</a></li>
+                        <li><a href="/about">About</a></li>
+                        <Link to={"/logging"}>
                             <ButtonGroup variant='outline' spacing='6'>
                                 <Button color="yellow" _hover={{
-                                    transform: 'scale(1.15)',
-                                }}>Home</Button>
+                                    transform: 'scale(1.10)',
+                                }}>Logging</Button>
                             </ButtonGroup>
                         </Link>
                     </ul>
