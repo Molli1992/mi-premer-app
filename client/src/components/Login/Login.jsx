@@ -1,8 +1,15 @@
 import NavBar from "../NavBar/NavBar";
-import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input } from '@chakra-ui/react';
+import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, Stack, Button } from '@chakra-ui/react';
 import { useState } from "react";
+import "./Login.css";
 
 function Login(props) {
+
+    const UserArray = [];
+
+    console.log(UserArray);
+
+    const [errorSubmit, setErrorSubmit] = useState("");
 
     const [input, setInput] = useState({
         email: "",
@@ -10,28 +17,6 @@ function Login(props) {
         lastName: "",
         birthday: ""
     });
-
-    const date = [];
-    const month = [];
-    const year = [];
-
-    if (!date.length) {
-        for (let i = 1; i < 32; i++) {
-            date.push([i])
-        }
-    };
-
-    if (!month.length) {
-        for (let i = 1; i < 13; i++) {
-            month.push([i])
-        }
-    };
-
-    if (!year.length) {
-        for (let i = 1900; i < 2024; i++) {
-            year.push([i])
-        }
-    };
 
     const handleInputChange = (e) => {
 
@@ -44,23 +29,29 @@ function Login(props) {
 
     };
 
-    const onChangeBirthday = (e) => {
+    const handeleSubmit = (e) => {
 
-        setInput({
-            ...input,
-            birthday: `${input.birthday}/${e.target.value}`
-        });
-        console.log(input.birthday)
+        if (
+            !errosEmail && !errosName && !errosLastName && !errosBirthday &&
+            errosEMsuccessful && errosNsuccessful && errosLNsuccessful && errosBsuccessful
+        ) {
 
-    };
+            setInput({
+                email: "",
+                name: "",
+                lastName: "",
+                birthday: ""
+            })
 
-    const BorrarGenero = (e) => {
+            setErrorSubmit("")
 
-        setInput({
-            ...input,
-            birthdate: input.birthdate.slice(0, input.birthdate.length - 1)
-        });
-        console.log(input.birthdate)
+            UserArray.push(input);
+
+            console.log(UserArray)
+
+        } else {
+            setErrorSubmit("error")
+        }
 
     };
 
@@ -69,11 +60,11 @@ function Login(props) {
     var errosEmail = "";
     var errosEMsuccessful = "";
 
-    if (input.email.length > 10) {
+    if (input.email.length >= 41) {
         errosEmail = "error"
     };
 
-    if (input.email.length === 9) {
+    if (input.email.length > 15 && input.email.length <= 40) {
         errosEMsuccessful = "error"
     };
 
@@ -103,15 +94,58 @@ function Login(props) {
         errosLNsuccessful = "error"
     };
 
+
+
     var errosBirthday = "";
     var errosBsuccessful = "";
 
-    if (input.birthday.length > 0 && input.birthday.length < 7 && input.birthday.length < 13) {
-        errosBirthday = "error"
-    };
+    if (input.birthday) {
 
-    if (input.birthday.length >= 8 && input.birthday.length <= 12) {
-        errosBsuccessful = "error"
+        if (input.birthday) {
+
+            if (input.birthday.length === 1) {
+                if (isNaN(input.birthday[0])) {
+                    errosBirthday = "error";
+                }
+            } else if (input.birthday.length === 2) {
+                if (isNaN(input.birthday[1])) {
+                    errosBirthday = "error";
+                }
+            } else if (input.birthday.length === 3) {
+                if (input.birthday[2] !== "/") {
+                    errosBirthday = "error";
+                }
+            } else if (input.birthday.length === 4) {
+                if (isNaN(input.birthday[3])) {
+                    errosBirthday = "error";
+                }
+            } else if (input.birthday.length === 5) {
+                if (isNaN(input.birthday[4])) {
+                    errosBirthday = "error";
+                }
+            } else if (input.birthday.length === 6) {
+                if (input.birthday[5] !== "/") {
+                    errosBirthday = "error";
+                }
+            } else if (input.birthday.length === 7) {
+                if (isNaN(input.birthday[6])) {
+                    errosBirthday = "error";
+                }
+            } else if (input.birthday.length === 8) {
+                if (isNaN(input.birthday[7])) {
+                    errosBirthday = "error";
+                } else {
+                    errosBsuccessful = "error";
+                }
+            } else if (input.birthday.length > 8) {
+                errosBirthday = "error";
+            } else {
+                errosBirthday = "";
+                errosBirthday = "";
+            }
+
+        };
+
     };
 
     return (
@@ -120,151 +154,135 @@ function Login(props) {
 
             <NavBar />
 
-            <FormControl>
+            <div className="form">
 
-                <FormLabel>Email</FormLabel>
-                <Input type='text' value={input.email} name="email" onChange={handleInputChange} />
-                {!errosEmail && !errosEMsuccessful ? (
-                    <FormHelperText>
-                        Complete email.
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosEmail ? (
-                    <FormHelperText>
-                        Error: Mistake email.
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosEMsuccessful ? (
-                    <FormHelperText>
-                        Successful
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
+                <FormControl>
 
-                <FormLabel>Name</FormLabel>
-                <Input type='text' value={input.name} name="name" onChange={handleInputChange} />
-                {!errosName && !errosNsuccessful ? (
-                    <FormHelperText>
-                        Complete Name.
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosName ? (
-                    <FormHelperText>
-                        Error: Name should have 3 letters.
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosNsuccessful ? (
-                    <FormHelperText>
-                        Successful
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
+                    <FormLabel>Email</FormLabel>
+                    <Input type='text' value={input.email} name="email" onChange={handleInputChange} />
+                    {!errosEmail && !errosEMsuccessful ? (
+                        <FormHelperText>
+                            Complete email.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosEmail && !errosEMsuccessful ? (
+                        <FormHelperText>
+                            Error: Mistake email.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosEMsuccessful ? (
+                        <FormHelperText>
+                            Successful
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
 
-                <FormLabel>Last Name</FormLabel>
-                <Input type='text' value={input.lastName} name="lastName" onChange={handleInputChange} />
-                {!errosLastName && !errosLNsuccessful ? (
-                    <FormHelperText>
-                        Complete Last Name.
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosLastName ? (
-                    <FormHelperText>
-                        Error: Last Name should have 3 letters.
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosLNsuccessful ? (
-                    <FormHelperText>
-                        Successful
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
+                    <FormLabel>Name</FormLabel>
+                    <Input type='text' value={input.name} name="name" onChange={handleInputChange} />
+                    {!errosName && !errosNsuccessful ? (
+                        <FormHelperText>
+                            Complete Name.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosName && !errosNsuccessful ? (
+                        <FormHelperText>
+                            Error: Name should have 3 letters.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosNsuccessful ? (
+                        <FormHelperText>
+                            Successful
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
 
-                <FormLabel>Birthday</FormLabel>
-                <Input type='text' value={input.birthday} name="birthday " onChange={handleInputChange} />
-                {!errosBirthday && !errosBsuccessful ? (
-                    <FormHelperText>
-                        Complete Birthday.
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosBirthday ? (
-                    <FormHelperText>
-                        Error: Birthday Ej, 22/05/1992
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
-                {errosBsuccessful ? (
-                    <FormHelperText>
-                        Successful
-                    </FormHelperText>
-                ) : (
-                    <FormErrorMessage></FormErrorMessage>
-                )}
+                    <FormLabel>Last Name</FormLabel>
+                    <Input type='text' value={input.lastName} name="lastName" onChange={handleInputChange} />
+                    {!errosLastName && !errosLNsuccessful ? (
+                        <FormHelperText>
+                            Complete Last Name.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosLastName && !errosLNsuccessful ? (
+                        <FormHelperText>
+                            Error: Last Name should have 3 letters.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosLNsuccessful ? (
+                        <FormHelperText>
+                            Successful
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
 
-            </FormControl>
+                    <FormLabel>Birthday</FormLabel>
+                    <Input type='text' value={input.birthday} name="birthday" onChange={handleInputChange} />
+                    {!errosBirthday && !errosBsuccessful ? (
+                        <FormHelperText>
+                            Complete Birthday.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosBirthday && !errosBsuccessful ? (
+                        <FormHelperText>
+                            Error: birthday ej: 22/05/92.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errosBsuccessful ? (
+                        <FormHelperText>
+                            Successful
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+
+                </FormControl>
+
+
+
+            </div>
+
+            <div className="form">
+
+                <Stack direction='row' spacing={4} align='center'>
+                    <Button colorScheme='teal' variant='solid' onClick={handeleSubmit}>
+                        Submmit
+                    </Button>
+                </Stack>
+
+            </div>
 
             <div>
 
-                <select onChange={onChangeBirthday}>
+                <FormControl className="form">
 
-                    <option>Date</option>
+                    {errorSubmit ? (
+                        <FormHelperText>
+                            Error in any of the data provided.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
 
-                    {date && date.map((d) => {
-                        return (
-                            <option>
-                                {d}
-                            </option>
-                        );
-                    })}
-
-                </select>
-
-                <select onChange={onChangeBirthday}>
-
-                    <option>Month</option>
-
-                    {month && month.map((m) => {
-                        return (
-                            <option>
-                                {m}
-                            </option>
-                        );
-                    })}
-
-                </select>
-
-
-
-                <select onChange={onChangeBirthday}>
-
-                    <option>Year</option>
-
-                    {year && year.map((y) => {
-                        return (
-                            <option>
-                                {y}
-                            </option>
-                        );
-                    })}
-
-                </select>
+                </FormControl>
 
             </div>
 

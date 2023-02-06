@@ -1,5 +1,5 @@
 import { Card, Divider, CardBody, CardFooter, Text, Button, Stack, ButtonGroup, Heading, Image } from '@chakra-ui/react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import NavBar from "../NavBar/NavBar";
 
 
