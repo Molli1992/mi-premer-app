@@ -60,14 +60,16 @@ function Login(props) {
     var errosEmail = "";
     var errosEMsuccessful = "";
 
-    if (input.email.length >= 41) {
+    var expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+    if (expReg.test(input.email)) {
+        errosEMsuccessful = "error";
+    } else if (input.email) {
         errosEmail = "error"
+    } else {
+        errosEmail = "";
+        errosEMsuccessful = "";
     };
-
-    if (input.email.length > 15 && input.email.length <= 40) {
-        errosEMsuccessful = "error"
-    };
-
 
 
     var errosName = "";
@@ -168,14 +170,14 @@ function Login(props) {
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosEmail && !errosEMsuccessful ? (
-                        <FormHelperText>
-                            Error: Mistake email.
+                        <FormHelperText color="blue">
+                            email@example.com
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosEMsuccessful ? (
-                        <FormHelperText>
+                        <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
                     ) : (
@@ -192,14 +194,14 @@ function Login(props) {
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosName && !errosNsuccessful ? (
-                        <FormHelperText>
+                        <FormHelperText color="blue">
                             Error: Name should have 3 letters.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosNsuccessful ? (
-                        <FormHelperText>
+                        <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
                     ) : (
@@ -216,14 +218,14 @@ function Login(props) {
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosLastName && !errosLNsuccessful ? (
-                        <FormHelperText>
+                        <FormHelperText color="blue">
                             Error: Last Name should have 3 letters.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosLNsuccessful ? (
-                        <FormHelperText>
+                        <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
                     ) : (
@@ -240,14 +242,14 @@ function Login(props) {
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosBirthday && !errosBsuccessful ? (
-                        <FormHelperText>
+                        <FormHelperText color="blue">
                             Error: birthday ej: 22/05/92.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
                     {errosBsuccessful ? (
-                        <FormHelperText>
+                        <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
                     ) : (
@@ -275,7 +277,7 @@ function Login(props) {
                 <FormControl className="form">
 
                     {errorSubmit ? (
-                        <FormHelperText>
+                        <FormHelperText color="green" className="letter">
                             Error in any of the data provided.
                         </FormHelperText>
                     ) : (

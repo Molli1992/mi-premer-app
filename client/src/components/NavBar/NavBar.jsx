@@ -12,6 +12,7 @@ function NavBar(props) {
             <div className="nav-logo"></div>
 
             <div className="nav-items">
+                <a href="/">Home</a>
                 <a href="/destination">Destination</a>
                 <a href="/about">About</a>
                 <a href="/login">Login</a>
