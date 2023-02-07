@@ -105,12 +105,23 @@ function Login(props) {
     var errorPassword = "";
     var errorPsuccessful = "";
 
-    if (input.password.length > 0 && input.password.length < 3) {
-        errorPassword = "error"
-    };
+    if (input.password) {
 
-    if (input.password.length >= 3) {
-        errorPsuccessful = "error"
+        if (input.password) {
+
+            var number = input.password.length - 1;
+            console.log(number);
+
+            if (isNaN(input.password[0])) {
+                errorPassword = "error";
+            } else if (isNaN(input.password[number])) {
+                errorPassword = "error";
+            } else if (input.password.length < 10) {
+                errorPassword = "error";
+            } else {
+                errorPsuccessful = "error";
+            }
+        }
     };
 
 
@@ -274,7 +285,7 @@ function Login(props) {
                     )}
 
                     <FormLabel>Password</FormLabel>
-                    <Input type='text' value={input.password} name="password" onChange={handleInputChange} />
+                    <Input type='password' value={input.password} name="password" onChange={handleInputChange} />
                     {!errorPassword && !errorPsuccessful ? (
                         <FormHelperText>
                             Complete Password.
@@ -284,7 +295,14 @@ function Login(props) {
                     )}
                     {errorPassword && !errorPsuccessful ? (
                         <FormHelperText color="blue">
-                            Error: Password should have capital letter and number.
+                            Error: Password should start and finish with number.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errorPassword && !errorPsuccessful ? (
+                        <FormHelperText color="blue">
+                            Error: Password must have 10 characters.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
