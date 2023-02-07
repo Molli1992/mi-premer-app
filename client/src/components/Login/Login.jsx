@@ -15,7 +15,8 @@ function Login(props) {
         email: "",
         name: "",
         lastName: "",
-        birthday: ""
+        birthday: "",
+        password: ""
     });
 
     const handleInputChange = (e) => {
@@ -32,74 +33,89 @@ function Login(props) {
     const handeleSubmit = (e) => {
 
         if (
-            !errosEmail && !errosName && !errosLastName && !errosBirthday &&
-            errosEMsuccessful && errosNsuccessful && errosLNsuccessful && errosBsuccessful
+            !errorEmail && !errorName && !errorLastName && !errorBirthday && !errorPassword &&
+            errorEMsuccessful && errorNsuccessful && errorLNsuccessful && errorBsuccessful && errorPsuccessful
         ) {
+
+            UserArray.push(input);
+
+            console.log(UserArray);
 
             setInput({
                 email: "",
                 name: "",
                 lastName: "",
-                birthday: ""
-            })
+                birthday: "",
+                password: ""
+            });
 
-            setErrorSubmit("")
+            setErrorSubmit("");
 
-            UserArray.push(input);
 
-            console.log(UserArray)
 
         } else {
-            setErrorSubmit("error")
+            setErrorSubmit("error");
         }
 
     };
 
 
 
-    var errosEmail = "";
-    var errosEMsuccessful = "";
+    var errorEmail = "";
+    var errorEMsuccessful = "";
 
     var expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
     if (expReg.test(input.email)) {
-        errosEMsuccessful = "error";
+        errorEMsuccessful = "error";
     } else if (input.email) {
-        errosEmail = "error"
+        errorEmail = "error"
     } else {
-        errosEmail = "";
-        errosEMsuccessful = "";
+        errorEmail = "";
+        errorEMsuccessful = "";
     };
 
 
-    var errosName = "";
-    var errosNsuccessful = "";
+    var errorName = "";
+    var errorNsuccessful = "";
 
     if (input.name.length > 0 && input.name.length < 3) {
-        errosName = "error"
+        errorName = "error"
     };
 
     if (input.name.length >= 3) {
-        errosNsuccessful = "error"
+        errorNsuccessful = "error"
     };
 
 
 
-    var errosLastName = "";
-    var errosLNsuccessful = "";
+    var errorLastName = "";
+    var errorLNsuccessful = "";
 
     if (input.lastName.length > 0 && input.lastName.length < 3) {
-        errosLastName = "error"
+        errorLastName = "error"
     };
 
     if (input.lastName.length >= 3) {
-        errosLNsuccessful = "error"
+        errorLNsuccessful = "error"
+    };
+
+
+    var errorPassword = "";
+    var errorPsuccessful = "";
+
+    if (input.password.length > 0 && input.password.length < 3) {
+        errorPassword = "error"
+    };
+
+    if (input.password.length >= 3) {
+        errorPsuccessful = "error"
     };
 
 
 
-    var errosBirthday = "";
-    var errosBsuccessful = "";
+    var errorBirthday = "";
+    var errorBsuccessful = "";
 
     if (input.birthday) {
 
@@ -107,43 +123,43 @@ function Login(props) {
 
             if (input.birthday.length === 1) {
                 if (isNaN(input.birthday[0])) {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 }
             } else if (input.birthday.length === 2) {
                 if (isNaN(input.birthday[1])) {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 }
             } else if (input.birthday.length === 3) {
                 if (input.birthday[2] !== "/") {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 }
             } else if (input.birthday.length === 4) {
                 if (isNaN(input.birthday[3])) {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 }
             } else if (input.birthday.length === 5) {
                 if (isNaN(input.birthday[4])) {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 }
             } else if (input.birthday.length === 6) {
                 if (input.birthday[5] !== "/") {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 }
             } else if (input.birthday.length === 7) {
                 if (isNaN(input.birthday[6])) {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 }
             } else if (input.birthday.length === 8) {
                 if (isNaN(input.birthday[7])) {
-                    errosBirthday = "error";
+                    errorBirthday = "error";
                 } else {
-                    errosBsuccessful = "error";
+                    errorBsuccessful = "error";
                 }
             } else if (input.birthday.length > 8) {
-                errosBirthday = "error";
+                errorBirthday = "error";
             } else {
-                errosBirthday = "";
-                errosBirthday = "";
+                errorBirthday = "";
+                errorBsuccessful = "";
             }
 
         };
@@ -162,21 +178,21 @@ function Login(props) {
 
                     <FormLabel>Email</FormLabel>
                     <Input type='text' value={input.email} name="email" onChange={handleInputChange} />
-                    {!errosEmail && !errosEMsuccessful ? (
+                    {!errorEmail && !errorEMsuccessful ? (
                         <FormHelperText>
                             Complete email.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosEmail && !errosEMsuccessful ? (
+                    {errorEmail && !errorEMsuccessful ? (
                         <FormHelperText color="blue">
                             email@example.com
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosEMsuccessful ? (
+                    {errorEMsuccessful ? (
                         <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
@@ -186,21 +202,21 @@ function Login(props) {
 
                     <FormLabel>Name</FormLabel>
                     <Input type='text' value={input.name} name="name" onChange={handleInputChange} />
-                    {!errosName && !errosNsuccessful ? (
+                    {!errorName && !errorNsuccessful ? (
                         <FormHelperText>
                             Complete Name.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosName && !errosNsuccessful ? (
+                    {errorName && !errorNsuccessful ? (
                         <FormHelperText color="blue">
                             Error: Name should have 3 letters.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosNsuccessful ? (
+                    {errorNsuccessful ? (
                         <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
@@ -210,21 +226,21 @@ function Login(props) {
 
                     <FormLabel>Last Name</FormLabel>
                     <Input type='text' value={input.lastName} name="lastName" onChange={handleInputChange} />
-                    {!errosLastName && !errosLNsuccessful ? (
+                    {!errorLastName && !errorLNsuccessful ? (
                         <FormHelperText>
                             Complete Last Name.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosLastName && !errosLNsuccessful ? (
+                    {errorLastName && !errorLNsuccessful ? (
                         <FormHelperText color="blue">
                             Error: Last Name should have 3 letters.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosLNsuccessful ? (
+                    {errorLNsuccessful ? (
                         <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
@@ -234,21 +250,45 @@ function Login(props) {
 
                     <FormLabel>Birthday</FormLabel>
                     <Input type='text' value={input.birthday} name="birthday" onChange={handleInputChange} />
-                    {!errosBirthday && !errosBsuccessful ? (
+                    {!errorBirthday && !errorBsuccessful ? (
                         <FormHelperText>
                             Complete Birthday.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosBirthday && !errosBsuccessful ? (
+                    {errorBirthday && !errorBsuccessful ? (
                         <FormHelperText color="blue">
                             Error: birthday ej: 22/05/92.
                         </FormHelperText>
                     ) : (
                         <FormErrorMessage></FormErrorMessage>
                     )}
-                    {errosBsuccessful ? (
+                    {errorBsuccessful ? (
+                        <FormHelperText color="red" className="letter">
+                            Successful
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+
+                    <FormLabel>Password</FormLabel>
+                    <Input type='text' value={input.password} name="password" onChange={handleInputChange} />
+                    {!errorPassword && !errorPsuccessful ? (
+                        <FormHelperText>
+                            Complete Password.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errorPassword && !errorPsuccessful ? (
+                        <FormHelperText color="blue">
+                            Error: Password should have capital letter and number.
+                        </FormHelperText>
+                    ) : (
+                        <FormErrorMessage></FormErrorMessage>
+                    )}
+                    {errorPsuccessful ? (
                         <FormHelperText color="red" className="letter">
                             Successful
                         </FormHelperText>
@@ -269,10 +309,6 @@ function Login(props) {
                         Submmit
                     </Button>
                 </Stack>
-
-            </div>
-
-            <div>
 
                 <FormControl className="form">
 
