@@ -1,5 +1,5 @@
 import NavBar from "../NavBar/NavBar";
-import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, Stack, Button } from '@chakra-ui/react';
+import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, Stack, Button, Select } from '@chakra-ui/react';
 import { useState } from "react";
 import "./Login.css";
 
@@ -34,7 +34,7 @@ function Login(props) {
 
         if (
             !errorEmail && !errorName && !errorLastName && !errorBirthday && !errorPassword &&
-            errorEMsuccessful && errorNsuccessful && errorLNsuccessful && errorBsuccessful && errorPsuccessful
+            errorEMsuccessful && errorNsuccessful && errorLNsuccessful && errorBsuccessful && errorPsuccessful && input.nationality
         ) {
 
             UserArray.push(input);
@@ -46,7 +46,8 @@ function Login(props) {
                 name: "",
                 lastName: "",
                 birthday: "",
-                password: ""
+                password: "",
+                nationality: ""
             });
 
             setErrorSubmit("");
@@ -299,6 +300,18 @@ function Login(props) {
                 </FormControl>
 
 
+
+            </div>
+
+            <div className="form">
+
+                <FormLabel>Nationality</FormLabel>
+
+                <Select placeholder='Select option' value={input.nationality} name="nationality" onChange={handleInputChange}>
+                    <option> Argentina </option>
+                    <option> Brasil </option>
+                    <option> Uruguay </option>
+                </Select>
 
             </div>
 
