@@ -1,12 +1,14 @@
-import { FormControl, FormLabel, FormErrorMessage, FormHelperText, Input, Stack, Button, Select } from '@chakra-ui/react';
+import {
+    FormControl, FormLabel, FormErrorMessage, FormHelperText, Input,
+    Stack, Button, Select, WrapItem, Card, CardBody, Image,
+    Heading, Text, Divider
+} from '@chakra-ui/react';
 import { useState } from "react";
-import "./Login.css";
-import { LoginSocialFacebook } from 'reactjs-social-login';
-import { FacebookLoginButton } from 'react-social-login-buttons';
-import { Card, Heading, CardBody, Image, Text } from '@chakra-ui/react';
 import NavBar from "../NavBar/NavBar";
+import "./Login.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function Login(props) {
+function SingUp(props) {
 
     const Users = [];
     const PaisesArray = ["Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Palestina", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República de Macedonia", "República del Congo", "República Democrática del Congo", "República Dominicana", "República Sudafricana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue"];
@@ -14,6 +16,10 @@ function Login(props) {
     const MonthArray = [];
     const YearArray = [];
     const appId = "1644606985997067";
+    const { loginWithRedirect } = useAuth0();
+    const { logout } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
 
     for (let i = 1; i < 32; i++) {
         DayArray.push(i);
@@ -28,7 +34,6 @@ function Login(props) {
     };
 
     const [errorSubmit, setErrorSubmit] = useState("");
-    const [profile, setProfile] = useState("");
     const [input, setInput] = useState({
         email: "",
         name: "",
@@ -180,13 +185,67 @@ function Login(props) {
         }
     };
 
-    if (!profile) {
+    if (isAuthenticated) {
+        return (
+
+            <div>
+
+                <Card maxW='sm'>
+
+                    <CardBody>
+
+                        <Image
+                            src={user.name}
+                            alt={user.name}
+                            borderRadius='lg'
+                        />
+
+                        <Stack mt='6' spacing='3'>
+
+                            <Heading size='md'>{user.name}</Heading>
+
+                            <Text>
+                                {user.email}
+                            </Text>
+
+                        </Stack>
+
+                    </CardBody>
+
+                    <Divider />
+
+                </Card>
+
+                <Button colorScheme='blue'
+                    onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                    Logout
+                </Button>
+
+            </div>
+
+        )
+
+    } else {
 
         return (
 
             <div>
 
                 <NavBar />
+
+                <br></br>
+                <br></br>
+
+                <WrapItem onClick={() => loginWithRedirect()}>
+                    <Button colorScheme='facebook'>Facebook</Button>
+                </WrapItem>
+
+                <br></br>
+                <br></br>
+
+                <WrapItem onClick={() => loginWithRedirect()}>
+                    <Button colorScheme='gray'>Google</Button>
+                </WrapItem>
 
                 <div className="form">
 
@@ -413,68 +472,7 @@ function Login(props) {
 
                 </div>
 
-                <div className="form">
-
-                    <LoginSocialFacebook
-                        appId={appId}
-                        onResolve={(response) => {
-                            console.log(response)
-                            setProfile(response.data)
-                        }}
-                        onReject={(error) => {
-                            console.log(error)
-                        }}
-                    >
-
-                        <FacebookLoginButton />
-
-                    </LoginSocialFacebook>
-
-                </div>
-
             </div>
-
-        )
-
-    } else {
-
-        return (
-
-            <div>
-
-                <NavBar />
-
-                <div className='form'>
-
-                    <Card maxW='md' className='form' borderWidth='3px'>
-
-                        <CardBody>
-
-                            <Image
-                                src={profile.picture.data.url}
-                                alt='Green double couch with wooden legs'
-                                borderRadius='lg'
-                            />
-
-                            <Stack mt='6' spacing='3'>
-
-                                <Heading size='md'>{profile.name}</Heading>
-
-                                <Text>
-                                    Welcome!!!
-                                </Text>
-
-                            </Stack>
-
-                        </CardBody>
-
-                    </Card>
-
-                </div >
-
-            </div>
-
-
 
         )
 
@@ -482,5 +480,4 @@ function Login(props) {
 
 };
 
-
-export default Login;
+export default SingUp;
