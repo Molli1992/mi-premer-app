@@ -7,7 +7,7 @@ import { useState } from "react";
 import "./Login.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FacebookLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
-import NavBar from '../NavBar/NavBar';
+import NavBar from "../NavBar/NavBar";
 
 function Login(props) {
 
@@ -186,45 +186,68 @@ function Login(props) {
         }
     };
 
-    if (isAuthenticated) {
+    if (isLoading) {
         return (
 
             <div>
 
                 <NavBar />
 
-                <Card maxW='sm'>
-
-                    <CardBody>
-
-                        <Image
-                            src={user.name}
-                            alt={user.name}
-                            borderRadius='lg'
-                        />
-
-                        <Stack mt='6' spacing='3'>
-
-                            <Heading size='md'>{user.name}</Heading>
-
-                            <Text>
-                                {user.email}
-                            </Text>
-
-                        </Stack>
-
-                    </CardBody>
-
-                    <Divider />
-
-                </Card>
-
-                <Button colorScheme='blue'
-                    onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                    Logout
-                </Button>
+                <div>Loading...</div>
 
             </div>
+
+        )
+    } else if (isAuthenticated) {
+
+        console.log(user);
+
+        return (
+
+            <div>
+
+                <NavBar />
+
+                <div className='form'>
+
+                    <article key="" className="card">
+
+                        <div className="card-header">
+                            <img src={user.picture} alt="picture" />
+                        </div>
+
+                        <div className="card-info">
+                            <ul>
+
+                                <li>
+                                    <span>
+                                        Name:
+                                    </span>
+                                    {user.name}
+                                </li>
+
+                                <li>
+                                    <span>
+                                        Email:
+                                    </span>
+                                    {user.email}
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </article>
+
+                    <Button colorScheme='blue'
+                        onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                        Logout
+                    </Button>
+
+                </div>
+
+            </div>
+
+
 
         )
 
