@@ -8,6 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { FacebookLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
 import Cookies from "universal-cookie";
 import NavBar from '../NavBar/NavBar';
+import axios from "axios";
 
 function Login(props) {
 
@@ -23,17 +24,17 @@ function Login(props) {
     const [errorInput, setErrorInput] = useState("");
     const [errorUser, setErrorUser] = useState("");
 
-    var arrayDataApi = [{ first_name: "felipe", email: "felipe@gmail.com", password: "22felipe05" },
-    { first_name: "tobias", email: "tobias@gmail.com", password: "22tobias05" },
-    { first_name: "enrique", email: "enrique@gmail.com", password: "22enrique05" },
-    { first_name: "estanislao", email: "estanislao@gmail.com", password: "22estanislao05" },
-    { first_name: "nicolas", email: "nicolas@gmail.com", password: "22nicolas05" },
-    { first_name: "juan manuel", email: "juan.manuel@gmail.com", password: "22juan.manuel05" },
-    { first_name: "lucia", email: "lucia@gmail.com", password: "22lucia05" },
-    { first_name: "maria", email: "maria@gmail.com", password: "22maria05" },
-    { first_name: "bolo", email: "bolo@gmail.com", password: "22bolo05" },
-    { first_name: "mechi", email: "mechi@gmail.com", password: "22mechi05" },
-    ];
+    const arrayDataApi = [];
+
+    axios.get("http://localhost:3000/users")
+        .then((res) => {
+            for (let i = 0; i < res.data.length; i++) {
+                arrayDataApi.push(res.data[i])
+            }
+        })
+        .catch((err) => console.log(err));
+
+
 
     console.log(arrayDataApi);
 

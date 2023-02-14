@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
+import axios from "axios";
 
 function SingUp(props) {
 
@@ -11,7 +12,6 @@ function SingUp(props) {
     const DayArray = [];
     const MonthArray = [];
     const YearArray = [];
-    const userArray = [];
 
     for (let i = 1; i < 32; i++) {
         DayArray.push(i);
@@ -54,7 +54,7 @@ function SingUp(props) {
 
         setInput({
             ...input,
-            [e.target.name]: `${selectYear.value}-${selectMonth.value}-${selectDay.value}`
+            [e.target.name]: `${selectDay.value}-${selectMonth.value}-${selectYear.value}`
         });
 
         console.log(input)
@@ -73,9 +73,9 @@ function SingUp(props) {
             && input.date_birth && selectDay.value && selectMonth.value && selectYear.value
         ) {
 
-            userArray.push(input);
-
-            console.log(userArray);
+            axios.post("http://localhost:3000/users", input)
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err));
 
             setInput({
                 email: "",
