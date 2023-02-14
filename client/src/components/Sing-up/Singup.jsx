@@ -13,6 +13,16 @@ function SingUp(props) {
     const MonthArray = [];
     const YearArray = [];
 
+    const DataUsers = [{
+        email: "tobias@gmail.com", first_name: "tobias", last_name: "blaksley", date_birth: "11-05-1990", user_password: "11tobias05", nationality: "argentina"
+    }, {
+        email: "felipe@gmail.com", first_name: "felipe", last_name: "blaksley", date_birth: "22-05-1992", user_password: "22felipe05", nationality: "argentina"
+    }, {
+        email: "carolina@gmail.com", first_name: "carolina", last_name: "presta", date_birth: "27-10-1989", user_password: "27carolina10", nationality: "argentina"
+    }];
+
+    console.log(DataUsers);
+
     for (let i = 1; i < 32; i++) {
         DayArray.push(i);
     };
@@ -73,9 +83,9 @@ function SingUp(props) {
             && input.date_birth && selectDay.value && selectMonth.value && selectYear.value
         ) {
 
-            axios.post("http://localhost:3000/users", input)
-                .then((res) => console.log(res))
-                .catch((err) => console.log(err));
+            DataUsers.push(input);
+
+            console.log(DataUsers);
 
             setInput({
                 email: "",
@@ -170,7 +180,7 @@ function SingUp(props) {
                 errorPassword = "error";
             } else if (isNaN(input.user_password[number])) {
                 errorPassword = "error";
-            } else if (input.user_password.length < 10) {
+            } else if (input.user_password.length < 8) {
                 errorPassword = "error";
             } else {
                 errorPsuccessful = "error";

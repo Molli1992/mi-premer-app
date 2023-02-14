@@ -8,7 +8,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { FacebookLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
 import Cookies from "universal-cookie";
 import NavBar from '../NavBar/NavBar';
-import axios from "axios";
 
 function Login(props) {
 
@@ -24,19 +23,15 @@ function Login(props) {
     const [errorInput, setErrorInput] = useState("");
     const [errorUser, setErrorUser] = useState("");
 
-    const arrayDataApi = [];
+    const DataUsers = [{
+        email: "tobias@gmail.com", first_name: "tobias", last_name: "blaksley", date_birth: "11-05-1990", user_password: "11tobias05", nationality: "argentina"
+    }, {
+        email: "felipe@gmail.com", first_name: "felipe", last_name: "blaksley", date_birth: "22-05-1992", user_password: "22felipe05", nationality: "argentina"
+    }, {
+        email: "carolina@gmail.com", first_name: "carolina", last_name: "presta", date_birth: "27-10-1989", user_password: "27carolina10", nationality: "argentina"
+    }];
 
-    axios.get("http://localhost:3000/users")
-        .then((res) => {
-            for (let i = 0; i < res.data.length; i++) {
-                arrayDataApi.push(res.data[i])
-            }
-        })
-        .catch((err) => console.log(err));
-
-
-
-    console.log(arrayDataApi);
+    console.log(DataUsers);
 
     const handleInputChange = (e) => {
 
@@ -55,7 +50,7 @@ function Login(props) {
             setErrorInput("error")
         } else {
 
-            let userApi = arrayDataApi.find(u => u.email === input.email && u.password === input.user_password);
+            let userApi = DataUsers.find(u => u.email === input.email && u.user_password === input.user_password);
 
             console.log(userApi);
 
