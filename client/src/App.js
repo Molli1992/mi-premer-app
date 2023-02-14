@@ -5,6 +5,7 @@ import Destination from "./components/Destination/Destination";
 import CardDetail from "./components/CardDetail/CardDetail";
 import About from "./components/About/About";
 import Login from "./components/Login/Login";
+import SingUp from "./components/Sing-up/Singup";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/destination" exact={true} element={<Destination />} />
         <Route path="/about" exact={true} element={<About />} />
         <Route path="/login" exact={true} element={<Login />} />
+        <Route path="/sing-up" exact={true} element={<SingUp />} />
         <Route path="/destination/:id" element={<CardDetail />} />
 
       </Routes>

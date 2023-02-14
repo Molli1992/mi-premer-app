@@ -16,11 +16,12 @@ function LandingPage(props) {
                     <ul>
                         <li><a href="/destination">Destination</a></li>
                         <li><a href="/about">About</a></li>
-                        <Link to={"/login"}>
+                        <li><a href="/login">Login</a></li>
+                        <Link to={"/sing-up"}>
                             <ButtonGroup variant='outline' spacing='6'>
                                 <Button color="yellow" _hover={{
                                     transform: 'scale(1.10)',
-                                }}>Login</Button>
+                                }}>Sing-up</Button>
                             </ButtonGroup>
                         </Link>
                     </ul>

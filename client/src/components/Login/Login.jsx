@@ -1,48 +1,41 @@
 import {
     FormControl, FormLabel, FormErrorMessage, FormHelperText, Input,
-    Stack, Button, Select, Card, CardBody, Image,
-    Heading, Text, Divider
+    Stack, Button, Box, Card, Image, CardBody, CardFooter, Heading, Text,
+    Divider, ButtonGroup
 } from '@chakra-ui/react';
 import { useState } from "react";
-import "./Login.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FacebookLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
-import NavBar from "../NavBar/NavBar";
+import Cookies from "universal-cookie";
+import NavBar from '../NavBar/NavBar';
 
 function Login(props) {
 
-    const Users = [];
-    const PaisesArray = ["Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Palestina", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República de Macedonia", "República del Congo", "República Democrática del Congo", "República Dominicana", "República Sudafricana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue"];
-    const DayArray = [];
-    const MonthArray = [];
-    const YearArray = [];
-    const appId = "1644606985997067";
     const { loginWithRedirect } = useAuth0();
     const { logout } = useAuth0();
     const { user, isAuthenticated, isLoading } = useAuth0();
 
-
-    for (let i = 1; i < 32; i++) {
-        DayArray.push(i);
-    };
-
-    for (let i = 1; i < 13; i++) {
-        MonthArray.push(i);
-    };
-
-    for (let i = 1922; i < 2024; i++) {
-        YearArray.push(i);
-    };
-
-    const [errorSubmit, setErrorSubmit] = useState("");
     const [input, setInput] = useState({
         email: "",
-        name: "",
-        lastName: "",
-        birthday: "",
-        password: "",
-        nationality: ""
+        user_password: ""
     });
+
+    const [errorInput, setErrorInput] = useState("");
+    const [errorUser, setErrorUser] = useState("");
+
+    var arrayDataApi = [{ first_name: "felipe", email: "felipe@gmail.com" },
+    { first_name: "tobias", email: "tobias@gmail.com" },
+    { first_name: "enrique", email: "enrique@gmail.com" },
+    { first_name: "estanislao", email: "estanislao@gmail.com" },
+    { first_name: "nicolas", email: "nicolas@gmail.com" },
+    { first_name: "juan manuel", email: "juan.manuel@gmail.com" },
+    { first_name: "lucia", email: "lucia@gmail.com" },
+    { first_name: "maria", email: "maria@gmail.com" },
+    { first_name: "bolo", email: "bolo@gmail.com" },
+    { first_name: "mechi", email: "mechi@gmail.com" },
+    ];
+
+    console.log(arrayDataApi);
 
     const handleInputChange = (e) => {
 
@@ -55,74 +48,47 @@ function Login(props) {
 
     };
 
-    const handleBirthdayChange = (e) => {
-
-        const selectDay = document.getElementById('select-day');
-        const selectMonth = document.getElementById('select-month');
-        const selectYear = document.getElementById('select-year');
-
-        setInput({
-            ...input,
-            [e.target.name]: `${selectDay.value}/${selectMonth.value}/${selectYear.value}`
-        });
-
-        console.log(input)
-
-    };
-
     const handeleSubmit = (e) => {
 
-        const selectDay = document.getElementById('select-day');
-        const selectMonth = document.getElementById('select-month');
-        const selectYear = document.getElementById('select-year');
-
-        if (
-            !errorEmail && !errorName && !errorLastName && !errorPassword &&
-            errorEMsuccessful && errorNsuccessful && errorLNsuccessful && errorPsuccessful && input.nationality
-            && input.birthday && selectDay.value && selectMonth.value && selectYear.value
-        ) {
-
-            Users.push(input);
-            console.log(Users);
-
-            setInput({
-                email: "",
-                name: "",
-                lastName: "",
-                birthday: "",
-                password: "",
-                nationality: ""
-            });
-
-            setErrorSubmit("");
-
-            selectDay.value = "";
-            selectMonth.value = "";
-            selectYear.value = "";
-
+        if (!errorEMsuccessful || !errorPsuccessful) {
+            setErrorInput("error")
         } else {
-            setErrorSubmit("error");
+
+            let userApi = arrayDataApi.find(u => u.email === input.email);
+
+            console.log(userApi);
+
+            if (userApi) {
+
+                const coockie = new Cookies();
+                coockie.set("nombreUsuario", `${userApi.first_name}`, { path: "/" });
+                coockie.set("emailUsuario", `${userApi.email}`, { path: "/" });
+
+                window.location.reload()
+
+            } else {
+
+                setErrorUser("error")
+
+            }
+
         }
 
     };
 
-    var errorBirthday = "error";
-    var errorBsuccessful = "";
+    const handleLogout = (e) => {
 
-    if (input.birthday.length >= 8) {
-        var errorBirthday = "";
-        var errorBsuccessful = "error";
+        console.log(document.cookie);
+
+        document.cookie.split(";").forEach((c) => {
+            document.cookie = c
+                .replace(/^ +/, "")
+                .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+        });
+
+        window.location.reload()
+
     };
-
-
-    var errorNTsuccessful = "";
-    var errorNation = "error";
-
-    if (input.nationality) {
-        var errorNTsuccessful = "error";
-        var errorNation = "";
-    };
-
 
     var errorEmail = "";
     var errorEMsuccessful = "";
@@ -138,47 +104,21 @@ function Login(props) {
         errorEMsuccessful = "";
     };
 
-
-    var errorName = "";
-    var errorNsuccessful = "";
-
-    if (input.name.length > 0 && input.name.length < 3) {
-        errorName = "error"
-    };
-
-    if (input.name.length >= 3) {
-        errorNsuccessful = "error"
-    };
-
-
-
-    var errorLastName = "";
-    var errorLNsuccessful = "";
-
-    if (input.lastName.length > 0 && input.lastName.length < 3) {
-        errorLastName = "error"
-    };
-
-    if (input.lastName.length >= 3) {
-        errorLNsuccessful = "error"
-    };
-
-
     var errorPassword = "";
     var errorPsuccessful = "";
 
-    if (input.password) {
+    if (input.user_password) {
 
-        if (input.password) {
+        if (input.user_password) {
 
-            var number = input.password.length - 1;
+            var number = input.user_password.length - 1;
             console.log(number);
 
-            if (isNaN(input.password[0])) {
+            if (isNaN(input.user_password[0])) {
                 errorPassword = "error";
-            } else if (isNaN(input.password[number])) {
+            } else if (isNaN(input.user_password[number])) {
                 errorPassword = "error";
-            } else if (input.password.length < 10) {
+            } else if (input.user_password.length < 10) {
                 errorPassword = "error";
             } else {
                 errorPsuccessful = "error";
@@ -186,9 +126,9 @@ function Login(props) {
         }
     };
 
+
     if (isLoading) {
         return (
-
             <div>
 
                 <NavBar />
@@ -196,7 +136,6 @@ function Login(props) {
                 <div>Loading...</div>
 
             </div>
-
         )
     } else if (isAuthenticated) {
 
@@ -208,46 +147,108 @@ function Login(props) {
 
                 <NavBar />
 
-                <div className='form'>
+                <Box
+                    borderWidth="1px"
+                    rounded="lg"
+                    shadow="1px 1px 3px rgba(0,0,0,0.3)"
+                    maxWidth={800}
+                    p={6}
+                    m="10px auto"
+                    as="form"
+                >
 
-                    <article key="" className="card">
-
-                        <div className="card-header">
-                            <img src={user.picture} alt="picture" />
-                        </div>
-
-                        <div className="card-info">
-                            <ul>
-
-                                <li>
-                                    <span>
-                                        Name:
-                                    </span>
-                                    {user.name}
-                                </li>
-
-                                <li>
-                                    <span>
-                                        Email:
-                                    </span>
+                    <Card maxW='sm'>
+                        <CardBody>
+                            <Image
+                                src={user.picture}
+                                alt='Green double couch with wooden legs'
+                                borderRadius='lg'
+                            />
+                            <Stack mt='6' spacing='3'>
+                                <Heading size='md'>{user.name}</Heading>
+                                <Text>
+                                    On behalf of Ibera Hotels, we want to thank you immensely for the decision to purchase our services
+                                    for your stay and we are delighted to be able to collaborate with its development.
+                                </Text>
+                                <Text color='blue.600' fontSize='2xl'>
                                     {user.email}
-                                </li>
+                                </Text>
+                            </Stack>
+                        </CardBody>
+                        <Divider />
+                        <CardFooter>
+                            <ButtonGroup spacing='2'>
+                                <Button variant='solid' colorScheme='blue'
+                                    onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                    Log out
+                                </Button>
+                            </ButtonGroup>
+                        </CardFooter>
+                    </Card>
 
-                            </ul>
-                        </div>
-
-                    </article>
-
-                    <Button colorScheme='blue'
-                        onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                        Logout
-                    </Button>
-
-                </div>
+                </Box>
 
             </div>
 
+        )
 
+    } else if (document.cookie) {
+
+        const cookies = new Cookies();
+
+        console.log(user);
+
+        console.log(document.cookie);
+
+        return (
+
+            <div>
+
+                <NavBar />
+
+                <Box
+                    borderWidth="1px"
+                    rounded="lg"
+                    shadow="1px 1px 3px rgba(0,0,0,0.3)"
+                    maxWidth={800}
+                    p={6}
+                    m="10px auto"
+                    as="form"
+                >
+
+                    <Card maxW='sm'>
+                        <CardBody>
+                            <Image
+                                src="https://www.shutterstock.com/image-vector/avatar-profile-icon-vector-social-260nw-1906554358.jpg"
+                                alt='Green double couch with wooden legs'
+                                borderRadius='lg'
+                            />
+                            <Stack mt='6' spacing='3'>
+                                <Heading size='md'>{cookies.get("nombreUsuario")}</Heading>
+                                <Text>
+                                    On behalf of Ibera Hotels, we want to thank you immensely for the decision to purchase our services
+                                    for your stay and we are delighted to be able to collaborate with its development.
+                                </Text>
+                                <Text color='blue.600' fontSize='2xl'>
+                                    {cookies.get("emailUsuario")}
+                                </Text>
+                            </Stack>
+                        </CardBody>
+                        <Divider />
+                        <CardFooter>
+                            <ButtonGroup spacing='2'>
+                                <Button variant='solid' colorScheme='blue'
+                                    onClick={handleLogout}
+                                >
+                                    Log out
+                                </Button>
+                            </ButtonGroup>
+                        </CardFooter>
+                    </Card>
+
+                </Box>
+
+            </div>
 
         )
 
@@ -259,244 +260,124 @@ function Login(props) {
 
                 <NavBar />
 
-                <br></br>
+                <Box
+                    borderWidth="1px"
+                    rounded="lg"
+                    shadow="1px 1px 3px rgba(0,0,0,0.3)"
+                    maxWidth={800}
+                    p={6}
+                    m="10px auto"
+                    as="form"
+                >
 
-                <div>
+                    <div>
 
-                    <FacebookLoginButton onClick={() => loginWithRedirect()}></FacebookLoginButton>
+                        <FacebookLoginButton onClick={() => loginWithRedirect()}></FacebookLoginButton>
 
-                    <br></br>
+                        <br></br>
 
-                    <GoogleLoginButton onClick={() => loginWithRedirect()}></GoogleLoginButton>
+                        <GoogleLoginButton onClick={() => loginWithRedirect()}></GoogleLoginButton>
 
-                </div>
+                    </div>
 
-                <br></br>
+                    <div>
 
-                <div className="form">
+                        <FormControl>
 
-                    <FormControl>
+                            <FormLabel>Email</FormLabel>
+                            <Input type='text' value={input.email} name="email" onChange={handleInputChange} borderWidth='3px' />
+                            {!errorEmail && !errorEMsuccessful ? (
+                                <FormHelperText>
+                                    Complete email.
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
+                            {errorEmail && !errorEMsuccessful ? (
+                                <FormHelperText color="blue">
+                                    email@example.com
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
+                            {errorEMsuccessful ? (
+                                <FormHelperText color="red" className="letter" fontWeight='bold'>
+                                    Successful
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
 
-                        <FormLabel>Email</FormLabel>
-                        <Input type='text' value={input.email} name="email" onChange={handleInputChange} borderWidth='3px' />
-                        {!errorEmail && !errorEMsuccessful ? (
-                            <FormHelperText>
-                                Complete email.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorEmail && !errorEMsuccessful ? (
-                            <FormHelperText color="blue">
-                                email@example.com
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorEMsuccessful ? (
-                            <FormHelperText color="red" className="letter">
-                                Successful
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
+                            <FormLabel>Password</FormLabel>
+                            <Input type='password' value={input.user_password} name="user_password" onChange={handleInputChange} borderWidth='3px' />
+                            {!errorPassword && !errorPsuccessful ? (
+                                <FormHelperText>
+                                    Complete Password.
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
+                            {errorPassword && !errorPsuccessful ? (
+                                <FormHelperText color="blue">
+                                    Error: Password should start and finish with number.
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
+                            {errorPassword && !errorPsuccessful ? (
+                                <FormHelperText color="blue">
+                                    Error: Password must have 10 characters.
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
+                            {errorPsuccessful ? (
+                                <FormHelperText color="red" className="letter" fontWeight='bold'>
+                                    Successful
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
 
-                        <FormLabel>Name</FormLabel>
-                        <Input type='text' value={input.name} name="name" onChange={handleInputChange} borderWidth='3px' />
-                        {!errorName && !errorNsuccessful ? (
-                            <FormHelperText>
-                                Complete Name.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorName && !errorNsuccessful ? (
-                            <FormHelperText color="blue">
-                                Error: Name should have 3 letters.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorNsuccessful ? (
-                            <FormHelperText color="red" className="letter">
-                                Successful
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
+                        </FormControl>
 
-                        <FormLabel>Last Name</FormLabel>
-                        <Input type='text' value={input.lastName} name="lastName" onChange={handleInputChange} borderWidth='3px' />
-                        {!errorLastName && !errorLNsuccessful ? (
-                            <FormHelperText>
-                                Complete Last Name.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorLastName && !errorLNsuccessful ? (
-                            <FormHelperText color="blue">
-                                Error: Last Name should have 3 letters.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorLNsuccessful ? (
-                            <FormHelperText color="red" className="letter">
-                                Successful
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
+                    </div>
 
-                        <FormLabel>Password</FormLabel>
-                        <Input type='password' value={input.password} name="password" onChange={handleInputChange} borderWidth='3px' />
-                        {!errorPassword && !errorPsuccessful ? (
-                            <FormHelperText>
-                                Complete Password.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorPassword && !errorPsuccessful ? (
-                            <FormHelperText color="blue">
-                                Error: Password should start and finish with number.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorPassword && !errorPsuccessful ? (
-                            <FormHelperText color="blue">
-                                Error: Password must have 10 characters.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {errorPsuccessful ? (
-                            <FormHelperText color="red" className="letter">
-                                Successful
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
+                    <div>
 
-                    </FormControl>
+                        <FormControl>
 
+                            {errorInput ? (
+                                <FormHelperText color="green" className="letter">
+                                    Error in any of the data provided.
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
 
+                            {errorUser ? (
+                                <FormHelperText color="green" className="letter">
+                                    User does not exist.
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
 
-                </div>
+                        </FormControl>
 
-                <div className="form">
+                    </div>
 
-                    <FormLabel>Birthday</FormLabel>
+                    <div>
 
-                    <Select placeholder='day' id="select-day" name="birthday" onChange={handleBirthdayChange} borderWidth='3px' maxW='sm'>
-                        {DayArray && DayArray.map((d) => {
-                            return (
-                                <option> {d} </option>
-                            )
-                        })}
-                    </Select>
+                        <Stack direction='row' spacing={4} align='center'>
+                            <Button colorScheme='teal' variant='solid' onClick={handeleSubmit}>
+                                Log in
+                            </Button>
+                        </Stack>
 
-                    <Select placeholder='month' id="select-month" name="birthday" onChange={handleBirthdayChange} borderWidth='3px' maxW='sm'>
-                        {MonthArray && MonthArray.map((m) => {
-                            return (
-                                <option> {m} </option>
-                            )
-                        })}
-                    </Select>
+                    </div>
 
-                    <Select placeholder='year' id="select-year" name="birthday" onChange={handleBirthdayChange} borderWidth='3px' maxW='sm'>
-                        {YearArray && YearArray.map((y) => {
-                            return (
-                                <option> {y} </option>
-                            )
-                        })}
-                    </Select>
-
-                </div>
-
-                <div className='form'>
-
-                    <FormControl>
-
-                        {errorBirthday && !errorBsuccessful ? (
-                            <FormHelperText>
-                                Complete Birthday.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {!errorBirthday && errorBsuccessful ? (
-                            <FormHelperText color="red" className="letter">
-                                Successful
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-
-                    </FormControl>
-
-                </div>
-
-                <div className="form">
-
-                    <FormLabel>Nationality</FormLabel>
-
-                    <Select placeholder='Select option' id="select-nation" name="nationality" value={input.nationality} onChange={handleInputChange} borderWidth='3px'>
-                        {PaisesArray && PaisesArray.map((p) => {
-                            return (
-                                <option> {p} </option>
-                            )
-                        })}
-                    </Select>
-
-                </div>
-
-                <div className='form'>
-
-                    <FormControl>
-
-                        {errorNation && !errorNTsuccessful ? (
-                            <FormHelperText>
-                                Complete Nationality.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-                        {!errorNation && errorNTsuccessful ? (
-                            <FormHelperText color="red" className="letter">
-                                Successful
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-
-                    </FormControl>
-
-                </div>
-
-                <div className="form">
-
-                    <Stack direction='row' spacing={4} align='center'>
-                        <Button colorScheme='teal' variant='solid' onClick={handeleSubmit}>
-                            Submmit
-                        </Button>
-                    </Stack>
-
-                    <FormControl className="form">
-
-                        {errorSubmit ? (
-                            <FormHelperText color="green" className="letter">
-                                Error in any of the data provided.
-                            </FormHelperText>
-                        ) : (
-                            <FormErrorMessage></FormErrorMessage>
-                        )}
-
-                    </FormControl>
-
-                </div>
+                </Box>
 
             </div>
 
