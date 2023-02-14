@@ -23,16 +23,16 @@ function Login(props) {
     const [errorInput, setErrorInput] = useState("");
     const [errorUser, setErrorUser] = useState("");
 
-    var arrayDataApi = [{ first_name: "felipe", email: "felipe@gmail.com" },
-    { first_name: "tobias", email: "tobias@gmail.com" },
-    { first_name: "enrique", email: "enrique@gmail.com" },
-    { first_name: "estanislao", email: "estanislao@gmail.com" },
-    { first_name: "nicolas", email: "nicolas@gmail.com" },
-    { first_name: "juan manuel", email: "juan.manuel@gmail.com" },
-    { first_name: "lucia", email: "lucia@gmail.com" },
-    { first_name: "maria", email: "maria@gmail.com" },
-    { first_name: "bolo", email: "bolo@gmail.com" },
-    { first_name: "mechi", email: "mechi@gmail.com" },
+    var arrayDataApi = [{ first_name: "felipe", email: "felipe@gmail.com", password: "22felipe05" },
+    { first_name: "tobias", email: "tobias@gmail.com", password: "22tobias05" },
+    { first_name: "enrique", email: "enrique@gmail.com", password: "22enrique05" },
+    { first_name: "estanislao", email: "estanislao@gmail.com", password: "22estanislao05" },
+    { first_name: "nicolas", email: "nicolas@gmail.com", password: "22nicolas05" },
+    { first_name: "juan manuel", email: "juan.manuel@gmail.com", password: "22juan.manuel05" },
+    { first_name: "lucia", email: "lucia@gmail.com", password: "22lucia05" },
+    { first_name: "maria", email: "maria@gmail.com", password: "22maria05" },
+    { first_name: "bolo", email: "bolo@gmail.com", password: "22bolo05" },
+    { first_name: "mechi", email: "mechi@gmail.com", password: "22mechi05" },
     ];
 
     console.log(arrayDataApi);
@@ -54,7 +54,7 @@ function Login(props) {
             setErrorInput("error")
         } else {
 
-            let userApi = arrayDataApi.find(u => u.email === input.email);
+            let userApi = arrayDataApi.find(u => u.email === input.email && u.password === input.user_password);
 
             console.log(userApi);
 
@@ -118,7 +118,7 @@ function Login(props) {
                 errorPassword = "error";
             } else if (isNaN(input.user_password[number])) {
                 errorPassword = "error";
-            } else if (input.user_password.length < 10) {
+            } else if (input.user_password.length < 8) {
                 errorPassword = "error";
             } else {
                 errorPsuccessful = "error";
