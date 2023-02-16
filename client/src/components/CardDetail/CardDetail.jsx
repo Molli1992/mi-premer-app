@@ -1,7 +1,10 @@
-import { Card, Divider, CardBody, CardFooter, Text, Button, Stack, ButtonGroup, Heading, Image } from '@chakra-ui/react';
+import {
+    Card, Divider, CardBody, CardFooter, Text, Button, Stack,
+    ButtonGroup, Heading, Image, Box, Select
+} from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import NavBar from "../NavBar/NavBar";
-import DataHoteles from '../../data/HotelsData';
+import DataCelulares from '../../data/CelularData';
 import { useState } from 'react';
 
 
@@ -11,7 +14,7 @@ function CardDetail(props) {
 
     const [number, setNumber] = useState(0);
 
-    console.log(DataHoteles);
+    console.log(DataCelulares);
 
     console.log(number);
 
@@ -38,7 +41,7 @@ function CardDetail(props) {
 
     };
 
-    if (DataHoteles) {
+    if (DataCelulares) {
 
         return (
 
@@ -46,49 +49,83 @@ function CardDetail(props) {
 
                 <NavBar />
 
-                <Card maxW='sm'>
-                    <CardBody>
+                <Box
+                    borderWidth="1px"
+                    rounded="lg"
+                    shadow="1px 1px 3px rgba(0,0,0,0.3)"
+                    maxWidth={800}
+                    p={6}
+                    m="10px auto"
+                    as="form"
+                >
 
-                        <Image
-                            src={DataHoteles[id].img[number]}
-                            alt='Green double couch with wooden legs'
-                            borderRadius='lg'
-                        />
+                    <Card maxWidth={800}>
 
-                        <div>
-                            <Button variant='ghost' colorScheme='blue' onClick={prevHandler}>
-                                prev
-                            </Button>
-                            <Button variant='ghost' colorScheme='blue' onClick={nextHandler}>
-                                next
-                            </Button>
-                        </div>
+                        <CardBody>
 
-                        <Stack mt='6' spacing='3'>
-                            <Heading size='md'>{DataHoteles[id].name}</Heading>
-                            <Text>
-                                En Este Bello Destino Turístico, está El “San Agustín Internacional Hotel” ubicado dentro del pueblo y es totalmente campestre.
-                                Es considerado como una alternativa Hotelera única y exclusiva, además de su belleza arquitectónica y paisajística, gracias al concepto con el que fue desarrollado.
+                            <Image
+                                src={DataCelulares[id].img[number]}
+                                alt='Green double couch with wooden legs'
+                                borderRadius='lg'
+                                maxWidth={300}
+                            />
 
-                                Este precioso Hotel fue seleccionado por la revista Aló, como uno de los Hoteles paradisíacos de América.
-                            </Text>
-                            <Text color='blue.600' fontSize='2xl'>
-                                {DataHoteles[id].price}
-                            </Text>
-                        </Stack>
-                    </CardBody>
-                    <Divider />
-                    <CardFooter>
-                        <ButtonGroup spacing='2'>
-                            <Button variant='solid' colorScheme='blue'>
-                                Buy now
-                            </Button>
-                            <Button variant='ghost' colorScheme='blue'>
-                                Add to cart
-                            </Button>
-                        </ButtonGroup>
-                    </CardFooter>
-                </Card>
+                            <div>
+                                <Button variant='ghost' colorScheme='blue' onClick={prevHandler}>
+                                    prev
+                                </Button>
+                                <Button variant='ghost' colorScheme='blue' onClick={nextHandler}>
+                                    next
+                                </Button>
+                            </div>
+
+                            <div>
+                                <Select placeholder='color' color="black" maxWidth={500}>
+                                    <option>blanco</option>
+                                    <option>negro</option>
+                                    <option>gris</option>
+                                    <option>azul</option>
+                                    <option>amarillo</option>
+                                </Select>
+                            </div>
+
+                            <Stack mt='6' spacing='3'>
+                                <Heading size='md'>{DataCelulares[id].name}</Heading>
+                                <Text>
+                                    {DataCelulares[id].descripcion1}
+                                </Text>
+                                <Text>
+                                    {DataCelulares[id].descripcion2}
+                                </Text>
+                                <Text>
+                                    {DataCelulares[id].descripcion3}
+                                </Text>
+                                <Text>
+                                    {DataCelulares[id].descripcion4}
+                                </Text>
+                                <Text color='blue.600' fontSize='2xl'>
+                                    {DataCelulares[id].price}
+                                </Text>
+                            </Stack>
+
+                        </CardBody>
+
+                        <Divider />
+
+                        <CardFooter>
+                            <ButtonGroup spacing='2'>
+                                <Button variant='solid' colorScheme='blue'>
+                                    Buy now
+                                </Button>
+                                <Button variant='ghost' colorScheme='blue'>
+                                    Add to cart
+                                </Button>
+                            </ButtonGroup>
+                        </CardFooter>
+
+                    </Card>
+
+                </Box>
 
             </div>
         )

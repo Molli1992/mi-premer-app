@@ -13,19 +13,9 @@
 }
 
 .nav-bar>.nav-logo {
-    height: 8vh;
-    width: 8%;
-    background-image: url("../../imagenes/imagenSinFondo.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-}
-
-.nav-compras {
-    height: 4vh;
-    width: 4%;
-    background-image: url("https://static.vecteezy.com/system/resources/previews/002/238/646/original/isolated-of-shopping-cart-icon-basket-symbol-eps10-free-vector.jpg");
+    height: 9vh;
+    width: 9%;
+    background-image: url("../../imagenes/iPhone-Logo-2007.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

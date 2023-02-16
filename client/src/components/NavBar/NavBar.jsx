@@ -12,7 +12,7 @@ function NavBar(props) {
             <div className="nav-logo"></div>
 
             <div className="nav-items">
-                <a href="/destination">Destination</a>
+                <a href="/celulares">Celulares</a>
                 <a href="/about">About</a>
                 <a href="/login">Login</a>
                 <a href="/sing-up">Sing-up</a>

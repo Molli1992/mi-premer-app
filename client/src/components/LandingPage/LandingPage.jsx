@@ -9,19 +9,14 @@ function LandingPage(props) {
 
             <nav>
 
-                <div className="logo"></div>
-
                 <div className="nav-link">
 
                     <ul>
-                        <li><a href="/destination">Destination</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/login">Login</a></li>
-                        <Link to={"/sing-up"}>
+                        <Link to={"/celulares"}>
                             <ButtonGroup variant='outline' spacing='6'>
-                                <Button color="yellow" _hover={{
+                                <Button color="black" _hover={{
                                     transform: 'scale(1.10)',
-                                }}>Sing-up</Button>
+                                }}>Home</Button>
                             </ButtonGroup>
                         </Link>
                     </ul>
@@ -31,7 +26,7 @@ function LandingPage(props) {
             </nav>
 
             <div className="content">
-                <h1>Enjoy your vacation with <br />resort network <span>Ibera</span></h1>
+                <h1>Enjoy your purchase <br />Iphone network</h1>
             </div>
 
         </section>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, CardBody, Image, Stack, Heading, Text } from '@chakra-ui/react';
+import { Card, CardBody, Image, Stack, Heading, Text, Button, Box } from '@chakra-ui/react';
 
-function DestinationCard(props) {
+function CelularesCard(props) {
 
     return (
 
@@ -16,15 +16,16 @@ function DestinationCard(props) {
                         src={props.img[0]}
                         alt='Green double couch with wooden legs'
                         borderRadius='lg'
+                        maxWidth={150}
                     />
                     <Stack mt='6' spacing='3'>
                         <Heading size='md'>{props.name}</Heading>
                         <Text>
-                            City: {props.city}
+                            Price: {props.price}
                         </Text>
-                        <Text>
-                            Stars: {props.stars}
-                        </Text>
+                        <Button variant='solid' colorScheme='blue'>
+                            look detail
+                        </Button>
                     </Stack>
                 </CardBody>
             </Card>
@@ -34,5 +35,5 @@ function DestinationCard(props) {
     )
 };
 
-export default DestinationCard;
+export default CelularesCard;
 
