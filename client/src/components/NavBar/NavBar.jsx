@@ -14,7 +14,7 @@ function NavBar(props) {
             <div className="nav-items">
                 <a href="/celulares">Celulares</a>
                 <a href="/about">About</a>
-                <a href="/login">Login</a>
+                <a href="/login">{document.cookie ? "Profile " : "Log In"}</a>
                 <a href="/sing-up">Sing-up</a>
                 <a href="/compras">Carrito</a>
             </div>
