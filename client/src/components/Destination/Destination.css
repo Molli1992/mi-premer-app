@@ -1,11 +1,5 @@
 .home-color {
-    height: 200vh;
-    width: 100%;
-    background-image: url("../../imagenes/oceano-bonito.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
+    background-color: rgb(14, 248, 248);
 }
 
 .home-banner h1 {
@@ -50,7 +44,7 @@ main {
 }
 
 .home-paginado {
-    color: aqua;
+    color: rgb(10, 10, 10);
     display: flex;
     justify-content: center;
     align-items: center;

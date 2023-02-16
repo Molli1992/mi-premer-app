@@ -16,6 +16,7 @@ function NavBar(props) {
                 <a href="/about">About</a>
                 <a href="/login">Login</a>
                 <a href="/sing-up">Sing-up</a>
+                <a href="/compras">Carrito</a>
             </div>
 
         </div>

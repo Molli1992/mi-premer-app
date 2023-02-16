@@ -13,7 +13,7 @@ function DestinationCard(props) {
             }}>
                 <CardBody>
                     <Image
-                        src={props.img}
+                        src={props.img[0]}
                         alt='Green double couch with wooden legs'
                         borderRadius='lg'
                     />
@@ -23,7 +23,7 @@ function DestinationCard(props) {
                             City: {props.city}
                         </Text>
                         <Text>
-                            Rating: {props.rating}
+                            Stars: {props.stars}
                         </Text>
                     </Stack>
                 </CardBody>

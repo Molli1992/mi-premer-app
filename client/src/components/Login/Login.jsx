@@ -8,6 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { FacebookLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
 import Cookies from "universal-cookie";
 import NavBar from '../NavBar/NavBar';
+import DataUsers from "../../data/UsersData";
 
 function Login(props) {
 
@@ -22,14 +23,6 @@ function Login(props) {
 
     const [errorInput, setErrorInput] = useState("");
     const [errorUser, setErrorUser] = useState("");
-
-    const DataUsers = [{
-        email: "tobias@gmail.com", first_name: "tobias", last_name: "blaksley", date_birth: "11-05-1990", user_password: "11tobias05", nationality: "argentina"
-    }, {
-        email: "felipe@gmail.com", first_name: "felipe", last_name: "blaksley", date_birth: "22-05-1992", user_password: "22felipe05", nationality: "argentina"
-    }, {
-        email: "carolina@gmail.com", first_name: "carolina", last_name: "presta", date_birth: "27-10-1989", user_password: "27carolina10", nationality: "argentina"
-    }];
 
     console.log(DataUsers);
 
@@ -353,7 +346,7 @@ function Login(props) {
 
                             {errorUser ? (
                                 <FormHelperText color="green" className="letter">
-                                    User does not exist.
+                                    User does not exist or rong password.
                                 </FormHelperText>
                             ) : (
                                 <FormErrorMessage></FormErrorMessage>
