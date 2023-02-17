@@ -6,16 +6,15 @@ import { useParams } from 'react-router-dom';
 import NavBar from "../NavBar/NavBar";
 import DataCelulares from '../../data/CelularData';
 import { useState } from 'react';
+import axios from "axios";
 
 
 function CardDetail(props) {
 
     const { id } = useParams();
-
-    const [number, setNumber] = useState(0);
+    const [number, setNumber] = useState(0)
 
     console.log(DataCelulares);
-
     console.log(number);
 
     const nextHandler = () => {
@@ -38,6 +37,12 @@ function CardDetail(props) {
         console.log("prevHandler");
 
         setNumber(num)
+
+    };
+
+    const handleSubmit = (e) => {
+
+        window.location.href = "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1136995879-80b3cede-c7e3-4262-a84a-84c1f3c9f14c";
 
     };
 
@@ -114,7 +119,7 @@ function CardDetail(props) {
 
                         <CardFooter>
                             <ButtonGroup spacing='2'>
-                                <Button variant='solid' colorScheme='blue'>
+                                <Button variant='solid' colorScheme='blue' onClick={handleSubmit}>
                                     Buy now
                                 </Button>
                                 <Button variant='ghost' colorScheme='blue'>
