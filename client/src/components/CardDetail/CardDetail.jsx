@@ -13,9 +13,15 @@ function CardDetail(props) {
 
     const { id } = useParams();
     const [number, setNumber] = useState(0)
+    const title = DataCelulares[id].name;
+    const unit_price = DataCelulares[id].price;
 
     console.log(DataCelulares);
     console.log(number);
+    console.log(title);
+    console.log(unit_price);
+
+
 
     const nextHandler = () => {
 
@@ -42,7 +48,13 @@ function CardDetail(props) {
 
     const handleSubmit = (e) => {
 
-        window.location.href = "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=1136995879-80b3cede-c7e3-4262-a84a-84c1f3c9f14c";
+        e.preventDefault();
+
+        axios.post("http://localhost:3000/payment", {
+            title: title,
+            unit_price: unit_price
+        }).then((res) => window.location.href = `${res.data.init_point}`)
+            .catch((err) => console.log(err))
 
     };
 
