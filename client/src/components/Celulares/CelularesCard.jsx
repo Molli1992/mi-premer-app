@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Image, Stack, Heading, Text, Button, Box } from '@chakra-ui/react';
+import { Card, CardBody, Image, Stack, Heading, Text, Button } from '@chakra-ui/react';
 
 function CelularesCard(props) {
 

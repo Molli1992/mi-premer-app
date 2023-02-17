@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from "react";
 import NavBar from "../NavBar/NavBar";
+import DataUsers from '../../data/UsersData';
 
 function SingUp(props) {
 
@@ -11,14 +12,6 @@ function SingUp(props) {
     const DayArray = [];
     const MonthArray = [];
     const YearArray = [];
-
-    const DataUsers = [{
-        email: "tobias@gmail.com", first_name: "tobias", last_name: "blaksley", date_birth: "11-05-1990", user_password: "11tobias05", nationality: "argentina"
-    }, {
-        email: "felipe@gmail.com", first_name: "felipe", last_name: "blaksley", date_birth: "22-05-1992", user_password: "22felipe05", nationality: "argentina"
-    }, {
-        email: "carolina@gmail.com", first_name: "carolina", last_name: "presta", date_birth: "27-10-1989", user_password: "27carolina10", nationality: "argentina"
-    }];
 
     console.log(DataUsers);
 
@@ -35,6 +28,7 @@ function SingUp(props) {
     };
 
     const [errorSubmit, setErrorSubmit] = useState("");
+    const [errorUser, setErrorUser] = useState("");
     const [input, setInput] = useState({
         email: "",
         first_name: "",
@@ -82,24 +76,36 @@ function SingUp(props) {
             && input.date_birth && selectDay.value && selectMonth.value && selectYear.value
         ) {
 
-            DataUsers.push(input);
+            const user = DataUsers.find((u) => u.email === input.email);
 
-            console.log(DataUsers);
+            console.log(user);
 
-            setInput({
-                email: "",
-                first_name: "",
-                last_name: "",
-                date_birth: "",
-                user_password: "",
-                nationality: ""
-            });
+            if (!user) {
 
-            setErrorSubmit("");
+                DataUsers.push(input);
 
-            selectDay.value = "";
-            selectMonth.value = "";
-            selectYear.value = "";
+                console.log(DataUsers);
+
+                setInput({
+                    email: "",
+                    first_name: "",
+                    last_name: "",
+                    date_birth: "",
+                    user_password: "",
+                    nationality: ""
+                });
+
+                setErrorSubmit("");
+
+                selectDay.value = "";
+                selectMonth.value = "";
+                selectYear.value = "";
+
+            } else {
+
+                setErrorUser("error");
+
+            }
 
         } else {
             setErrorSubmit("error");
@@ -419,6 +425,18 @@ function SingUp(props) {
                             {errorSubmit ? (
                                 <FormHelperText color="green" className="letter">
                                     Error in any of the data provided.
+                                </FormHelperText>
+                            ) : (
+                                <FormErrorMessage></FormErrorMessage>
+                            )}
+
+                        </FormControl>
+
+                        <FormControl className="form">
+
+                            {errorUser ? (
+                                <FormHelperText color="green" className="letter">
+                                    User already exists.
                                 </FormHelperText>
                             ) : (
                                 <FormErrorMessage></FormErrorMessage>

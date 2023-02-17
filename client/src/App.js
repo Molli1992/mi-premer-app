@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ChakraProvider } from '@chakra-ui/react';
 import LandingPage from "./components/LandingPage/LandingPage";
-import Celulares from "./components/Destination/Celulares";
+import Celulares from "./components/Celulares/Celulares";
 import CardDetail from "./components/CardDetail/CardDetail";
 import About from "./components/About/About";
 import Login from "./components/Login/Login";
