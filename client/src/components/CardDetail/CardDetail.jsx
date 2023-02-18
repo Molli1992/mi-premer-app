@@ -50,6 +50,9 @@ function CardDetail(props) {
 
         e.preventDefault();
 
+        const button = document.getElementById("button-buy");
+        button.innerText = "Loading...";
+
         axios.post("http://localhost:3000/payment", {
             title: title,
             unit_price: unit_price
@@ -121,7 +124,7 @@ function CardDetail(props) {
                                     {DataCelulares[id].descripcion4}
                                 </Text>
                                 <Text color='blue.600' fontSize='2xl'>
-                                    {DataCelulares[id].price}
+                                    {DataCelulares[id].price} USD
                                 </Text>
                             </Stack>
 
@@ -131,7 +134,7 @@ function CardDetail(props) {
 
                         <CardFooter>
                             <ButtonGroup spacing='2'>
-                                <Button variant='solid' colorScheme='blue' onClick={handleSubmit}>
+                                <Button id='button-buy' variant='solid' colorScheme='blue' onClick={handleSubmit}>
                                     Buy now
                                 </Button>
                                 <Button variant='ghost' colorScheme='blue'>
