@@ -52,7 +52,7 @@ function CardDetail(props) {
         const button = document.getElementById("button-buy");
         button.innerText = "Loading...";
 
-        axios.post("http://localhost:3000/payment", {
+        axios.post("http://localhost:3010/payment", {
             title: title,
             unit_price: unit_price
         }).then((res) => window.location.href = `${res.data.init_point}`)
