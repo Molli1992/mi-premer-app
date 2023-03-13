@@ -20,8 +20,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-app.listen(3000, () => {
-    console.log(`Example app listening on port 3000`)
+app.listen(() => {
+    console.log(`Example app listening on port 3010`)
 })
 
 module.exports = app;
