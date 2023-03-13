@@ -5,11 +5,10 @@ class PaymentService {
         const url = "https://api.mercadopago.com/checkout/preferences";
 
         const body = {
-            payer_email: "test_user_46945293@testuser.com",
             items: [
                 {
                     title: title,
-                    description: "Dummy description",
+                    description: "Iphone",
                     picture_url: "http://www.myapp.com/myimage.jpg",
                     category_id: "category123",
                     quantity: 1,
@@ -17,9 +16,9 @@ class PaymentService {
                 }
             ],
             back_urls: {
-                failure: "/failure",
-                pending: "/pending",
-                success: "/success"
+                failure: "http://localhost:3001",
+                pending: "http://localhost:3001",
+                success: "http://localhost:3001"
             }
         };
 

@@ -20,6 +20,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-app.listen(3001, () => console.log("escuchando puerto 3001"));
+app.listen(3000, () => {
+    console.log(`Example app listening on port 3000`)
+})
 
 module.exports = app;
