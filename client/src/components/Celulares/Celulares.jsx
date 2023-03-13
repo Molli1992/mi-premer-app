@@ -3,15 +3,26 @@ import CelularesCard from "./CelularesCard";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { Button, Select } from '@chakra-ui/react'
-import dataApi from "../../data/CelularData";
+//import dataApi from "../../data/CelularData";
+import axios from "axios";
 
 function Celulares(props) {
 
+    const [dataApi, setDataApi] = useState([]);
     const [items, setItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const arrayCelularesName = [];
 
-    console.log(dataApi);
+    if (items.length === 0) {
+
+        axios.get("http://localhost:3010/celulares")
+            .then((res) => {
+                setDataApi([...res.data])
+                setItems([...res.data].splice(0, ITEMS_PER_PAGE));
+            })
+            .catch((err) => console.log(err))
+
+    };
 
     for (let i = 0; i < dataApi.length; i++) {
 
@@ -63,11 +74,8 @@ function Celulares(props) {
         window.location.reload()
     };
 
-    if (items.length === 0) {
-        setItems([...dataApi].splice(0, ITEMS_PER_PAGE));
-    };
-
     console.log(items);
+    console.log(dataApi);
 
     return (
 

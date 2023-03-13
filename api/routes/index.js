@@ -53,4 +53,28 @@ router.get("/celulares", async (req, res) => {
 
 });
 
+router.get("/celulares/:id", async (req, res) => {
+
+    try {
+
+        const { id } = req.params;
+
+        const celular = await Celulares.findAll({
+            where: { id: id }
+        });
+
+        if (celular.length !== 0) {
+            return res.json(celular);
+        };
+
+        res.status(404).send("celular no encotrados");
+
+    } catch (error) {
+
+        console.log(error)
+
+    }
+
+});
+
 module.exports = router;

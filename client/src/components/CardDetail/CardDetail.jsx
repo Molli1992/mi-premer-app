@@ -3,7 +3,6 @@ import {
     ButtonGroup, Heading, Image, Box, Select
 } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import DataCelulares from '../../data/CelularData';
 import { useState } from 'react';
 import axios from "axios";
 
@@ -12,15 +11,18 @@ function CardDetail(props) {
 
     const { id } = useParams();
     const [number, setNumber] = useState(0)
-    const title = DataCelulares[id].name;
-    const unit_price = DataCelulares[id].price;
-
-    console.log(DataCelulares);
-    console.log(number);
-    console.log(title);
-    console.log(unit_price);
+    const [item, setItem] = useState([])
 
 
+    if (item.length === 0) {
+
+        axios.get(`http://localhost:3010/celulares/${id}`)
+            .then((res) => {
+                setItem([...res.data])
+            })
+            .catch((err) => console.log(err))
+
+    };
 
     const nextHandler = () => {
 
@@ -60,7 +62,19 @@ function CardDetail(props) {
 
     };
 
-    if (DataCelulares) {
+    const onClickReturn = (e) => {
+        window.location.href = "http://localhost:3000/celulares"
+    }
+
+    if (item.length > 0) {
+
+        var title = item[0].name;
+        var unit_price = item[0].price;
+
+        console.log(item);
+        console.log(number);
+        console.log(title);
+        console.log(unit_price);
 
         return (
 
@@ -81,7 +95,7 @@ function CardDetail(props) {
                         <CardBody>
 
                             <Image
-                                src={DataCelulares[id].img[number]}
+                                src={item[0].img[number]}
                                 alt='Green double couch with wooden legs'
                                 borderRadius='lg'
                                 maxWidth={300}
@@ -107,21 +121,21 @@ function CardDetail(props) {
                             </div>
 
                             <Stack mt='6' spacing='3'>
-                                <Heading size='md'>{DataCelulares[id].name}</Heading>
+                                <Heading size='md'>{item[0].name}</Heading>
                                 <Text>
-                                    {DataCelulares[id].descripcion1}
+                                    {item[0].descripcion1}
                                 </Text>
                                 <Text>
-                                    {DataCelulares[id].descripcion2}
+                                    {item[0].descripcion2}
                                 </Text>
                                 <Text>
-                                    {DataCelulares[id].descripcion3}
+                                    {item[0].descripcion3}
                                 </Text>
                                 <Text>
-                                    {DataCelulares[id].descripcion4}
+                                    {item[0].descripcion4}
                                 </Text>
                                 <Text color='blue.600' fontSize='2xl'>
-                                    {DataCelulares[id].price} USD
+                                    {item[0].price} USD
                                 </Text>
                             </Stack>
 
@@ -136,6 +150,9 @@ function CardDetail(props) {
                                 </Button>
                                 <Button variant='ghost' colorScheme='blue'>
                                     Add to cart
+                                </Button>
+                                <Button variant='ghost' colorScheme='blue' onClick={onClickReturn}>
+                                    Return
                                 </Button>
                             </ButtonGroup>
                         </CardFooter>

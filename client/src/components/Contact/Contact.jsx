@@ -71,13 +71,13 @@ function Contact() {
                     <CardFooter>
 
                         <li class="ms-3">
-                            <a class="text-muted" href="#">
+                            <a class="text-muted" href="https://www.linkedin.com/in/felipe-blaksley-iraola-141b32236/">
                                 <ion-icon name="logo-linkedin" size="large"></ion-icon>
                             </a>
                         </li>
 
                         <li class="ms-3">
-                            <a class="text-muted" href="#">
+                            <a class="text-muted" href="https://www.facebook.com/felipeblaksley/">
                                 <ion-icon name="logo-facebook" size="large"></ion-icon>
                             </a>
                         </li>
