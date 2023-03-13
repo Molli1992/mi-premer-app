@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import Cookies from "universal-cookie";
+import { Box } from "@chakra-ui/react";
 
 
 
@@ -75,28 +75,32 @@ function NavBar(props) {
                             <li><a href="/celulares" class="nav-link px-2 text-black">Home</a></li>
                             <li><a href="/about" class="nav-link px-2 text-black">About</a></li>
                             <li><a href="/contact" class="nav-link px-2 text-black">Conact-Us</a></li>
-
-                            {isAuthenticated ?
-
-                                <div>
-
-                                    <li><a href="/profile" class="nav-link px-2 text-black">
-                                        <ion-icon name="person-circle-outline" size="large"></ion-icon>
-                                    </a></li>
-
-                                </div>
-
-                                :
-
-                                <div></div>
-
-                            }
-
                             <li><a href="/compras" class="nav-link px-2 text-black">
                                 <ion-icon name="cart-outline" size="large"></ion-icon>
                             </a></li>
 
+                            <Box alignItems="center" padding="0px 0px 0px 800px">
+
+                                {isAuthenticated ?
+
+                                    <div>
+
+                                        <li><a href="/profile" class="nav-link px-2 text-black">
+                                            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+                                            Profile
+                                        </a></li>
+
+                                    </div>
+
+                                    :
+
+                                    <div></div>
+
+                                }
+                            </Box>
+
                         </ul>
+
 
                         {isAuthenticated ?
 
