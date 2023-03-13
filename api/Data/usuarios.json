@@ -1,0 +1,29 @@
+[
+    {
+        "email": "tobias@gmail.com",
+        "first_name": "tobias",
+        "last_name": "blaksley",
+        "date_birth": "11-05-1990",
+        "user_password": "11tobias05",
+        "nationality": "argentina",
+        "img": "https://i.pinimg.com/736x/0c/18/53/0c1853213ec8661bad150e9a9fd15609.jpg"
+    },
+    {
+        "email": "felipe@gmail.com",
+        "first_name": "felipe",
+        "last_name": "blaksley",
+        "date_birth": "22-05-1992",
+        "user_password": "22felipe05",
+        "nationality": "argentina",
+        "img": "https://i.pinimg.com/736x/5f/61/b9/5f61b99b20694b22e368f48541045062.jpg"
+    },
+    {
+        "email": "carolina@gmail.com",
+        "first_name": "carolina",
+        "last_name": "presta",
+        "date_birth": "27-10-1989",
+        "user_password": "27carolina10",
+        "nationality": "argentina",
+        "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/famosas-pelo-rizado-1659637012.jpg?crop=0.699xw:1.00xh;0.151xw,0&resize=1200:*"
+    }
+]
