@@ -1,6 +1,5 @@
 import "./Celulares.css";
 import CelularesCard from "./CelularesCard";
-import NavBar from "../NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { Button, Select } from '@chakra-ui/react'
@@ -74,18 +73,11 @@ function Celulares(props) {
 
         <div className='home-color'>
 
-            <NavBar />
-
-            <div className='home-banner'>
-                <h1 className='h-1'>Enjoy you dream</h1>
-                <h1 className='h-1'>Iphone store</h1>
-            </div>
-
             <main>
 
                 <div className='home-filters'>
 
-                    <Select placeholder='Search by name' color="black" onChange={handleSearchName}>
+                    <Select placeholder='Search by name' onChange={handleSearchName}>
 
                         {arrayCelularesName && arrayCelularesName.map((hotel) => {
                             return (

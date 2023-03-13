@@ -191,10 +191,16 @@ const DataCelular = [
         name: "Iphone 9",
         img: ["https://cdn1.smartprix.com/rx-icTFlmIiF-w1200-h1200/cTFlmIiF.jpg", "https://cdn.wccftech.com/wp-content/uploads/2018/05/iPhone-Xc-concept-4.jpg", "https://thumbs.dreamstime.com/z/en-diciembre-de-nuevo-iphone-la-caja-105199751.jpg"],
         price: 200,
-        descripcion1: ``,
-        descripcion2: ``,
-        descripcion3: ``,
-        descripcion4: ``
+        descripcion1: `Tamaño
+        4.7 Pulgada`,
+        descripcion2: `MEMORIA & RAM
+        64/128/256 GB, NVMe`,
+        descripcion3: ` Cámara trasera 12 Megapíxeles, f/1,8, 28 mm (wide), PDAF
+        Características de la cámara LED de color dual flash, HDR
+        vídeo 1080 pixel 30 fps
+        Cámara Principal 7 Megapíxeles, f/2,2
+        características de la cámara frontal detección de rostros, HDR, Panorama`,
+        descripcion4: `BATERÍA Li-Po, no extraíble`
     },
 
 
@@ -203,10 +209,52 @@ const DataCelular = [
         name: "Iphone 10",
         img: ["https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_front_back_glass_big.jpg.large.jpg", "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iphone/iphone-14-colors.png", "https://thumbs.dreamstime.com/z/en-diciembre-de-nuevo-iphone-la-caja-105199822.jpg"],
         price: 300,
-        descripcion1: ``,
-        descripcion2: ``,
-        descripcion3: ``,
-        descripcion4: ``
+        descripcion1: `Tamaño y peso
+        Alto: 143,6 mm
+        Ancho: 70,9 mm
+        Grosor: 7,7 mm
+        Peso: 174 g`,
+        descripcion2: `Capacidad
+        64 GB
+        256 GB`,
+        descripcion3: `Cámara
+        Cámaras de 12 MP con gran angular y teleobjetivo
+        Gran angular: apertura de ƒ/1.8
+        Teleobjetivo: apertura de ƒ/2.4
+        Zoom óptico; zoom digital de hasta 10x
+        Modo Retrato
+        Iluminación de Retrato (versión beta)
+        Doble estabilización óptica de imagen
+        Lente de seis elementos
+        Flash Quad-LED True Tone con sincronización lenta
+        Fotos panorámicas (hasta 63 MP)
+        Cubierta del lente de cristal de zafiro
+        Sensor de iluminación posterior
+        Filtro híbrido IR
+        Autoenfoque con Focus Pixels
+        Enfoque con un toque con Focus Pixels
+        Live Photos con estabilización
+        Amplia gama de colores en fotos y Live Photos
+        Mapeo de tonos localizado mejorado
+        Detección de cuerpos y caras
+        Control de exposición
+        Reducción de ruido
+        HDR automático para fotos
+        Estabilización automática de imagen
+        Modo ráfaga
+        Modo temporizador
+        Geoetiquetado de fotos
+        Captura de imagen en formatos HEIF y JPEG`,
+        descripcion4: `Energía y batería
+        Hasta 2 horas más de batería que el iPhone 7
+        Tiempo de conversación (con audífonos inalámbricos): Hasta 21 horas
+        Uso de Internet: Hasta 12 horas
+        Reproducción de video (con audio vía audífonos inalámbricos): Hasta 13 horas
+        Reproducción de audio (con audífonos inalámbricos): Hasta 60 horas
+        Carga rápida: Puede cargar hasta el 50% de la batería en 30 minutos
+        Batería de iones de litio recargable integrada
+        Carga inalámbrica (compatible con cargadores con certificación Qi9)
+        Carga mediante el puerto USB de una computadora o con un adaptador de corriente`
     },
 
 
@@ -215,10 +263,46 @@ const DataCelular = [
         name: "Iphone 11",
         img: ["https://http2.mlstatic.com/D_NQ_NP_956760-MLA46114829866_052021-O.jpg", "https://http2.mlstatic.com/D_NQ_NP_709317-MLA46115014509_052021-O.jpg", "https://d500.epimg.net/cincodias/imagenes/2020/10/16/smartphones/1602837957_938762_1602838003_rrss_normal.jpg"],
         price: 400,
-        descripcion1: ``,
-        descripcion2: ``,
-        descripcion3: ``,
-        descripcion4: ``
+        descripcion1: `Dimensiones y peso
+        Ancho: 7,57 cm
+        Alto: 15,09 cm
+        Grosor: 0,83 cm
+        Peso: 194 g`,
+        descripcion2: `Capacidad
+        64 GB
+        128 GB
+        256 GB`,
+        descripcion3: `Cámara
+        Sistema de cámara dual de 12 Mpx con gran angular y ultra gran angular
+        Gran angular: apertura de ƒ/1,8
+        Ultra gran angular: apertura de ƒ/2,4 y campo de visión de 120°
+        Zoom óptico de alejamiento x2
+        Zoom digital hasta x5
+        Modo Retrato con efecto bokeh avanzado y Control de Profundidad
+        Iluminación de Retratos con seis efectos (Luz Natural, Luz de Estudio, Luz de Contorno, Luz de Escenario, Luz de Escenario Mono y Luz en Clave Alta Mono)
+        Estabilización óptica de imagen (gran angular)
+        Lente de seis elementos (gran angular) y lente de cinco elementos (ultra gran angular)
+        Flash True Tone con sincronización lenta
+        Fotos panorámicas (hasta 63 Mpx)
+        Cubierta de la lente de cristal de zafiro
+        100 % Focus Pixels (gran angular)
+        Modo Noche (gran angular)
+        Deep Fusion (gran angular)
+        HDR Inteligente de última generación para fotos
+        Gama cromática amplia para fotos y Live Photos
+        Corrección de ojos rojos avanzada
+        Estabilización automática de imagen
+        Modo ráfaga
+        Geoetiquetado de fotos
+        Captura de imagen en formato HEIF y JPEG`,
+        descripcion4: `Batería y alimentación
+        Reproducción de vídeo: Hasta 17 horas
+        Reproducción de vídeo (en streaming): Hasta 10 horas
+        Reproducción de audio: Hasta 65 horas
+        Carga rápida: Hasta un 50 % de carga en 30 minutos10 con un adaptador de 20 W o superior (se vende por separado)
+        Batería recargable integrada de iones de litio
+        Carga inalámbrica (funciona con cargadores Qi)
+        Carga por conexión USB con un ordenador o adaptador de corriente`
     },
 
 
@@ -227,10 +311,48 @@ const DataCelular = [
         name: "Iphone 12",
         img: ["https://m.media-amazon.com/images/I/71fVoqRC0wL._AC_UF1000,1000_QL80_.jpg", "https://media.revistagq.com/photos/5f8616135cb2c026d8828087/master/w_1600%2Cc_limit/GEO-iPhone12-color-lineup-6up.png", "https://ipadizate.com/hero/2020/10/Caja-iPhone-12.jpg?width=768&aspect_ratio=16:9&format=nowebp"],
         price: 500,
-        descripcion1: ``,
-        descripcion2: ``,
-        descripcion3: ``,
-        descripcion4: ``
+        descripcion1: `Dimensiones y peso
+        Ancho: 7,15 cm
+        Alto: 14,67 cm
+        Grosor: 0,74 cm
+        Peso: 162 g`,
+        descripcion2: `Capacidad
+        64 GB
+        128 GB
+        256 GB`,
+        descripcion3: `Cámara  
+        Sistema de cámara dual de 12 Mpx con gran angular y ultra gran angular
+        Gran angular: apertura de ƒ/1,6
+        Ultra gran angular: apertura de ƒ/2,4 y campo de visión de 120°
+        Zoom óptico de alejamiento x2
+        Zoom digital hasta x5
+        Modo Retrato con efecto bokeh avanzado y Control de Profundidad
+        Iluminación de Retratos con seis efectos (Luz Natural, Luz de Estudio, Luz de Contorno, Luz de Escenario, Luz de Escenario Mono y Luz en Clave Alta Mono)
+        Estabilización óptica de imagen (gran angular)
+        Lente de siete elementos (gran angular) y lente de cinco elementos (ultra gran angular)
+        Flash True Tone con sincronización lenta
+        Fotos panorámicas (hasta 63 Mpx)
+        Cubierta de la lente de cristal de zafiro
+        100 % Focus Pixels (gran angular)
+        Modo Noche
+        Deep Fusion
+        HDR Inteligente 3
+        Gama cromática amplia para fotos y Live Photos
+        Corrección del objetivo (ultra gran angular)
+        Corrección de ojos rojos avanzada
+        Estabilización automática de imagen
+        Modo ráfaga
+        Geoetiquetado de fotos
+        Captura de imagen en formato HEIF y JPEG`,
+        descripcion4: `Batería y alimentación
+        Reproducción de vídeo: Hasta 17 horas
+        Streaming de vídeo: Hasta 11 horas
+        Reproducción de audio: Hasta 65 horas
+        Batería recargable integrada de iones de litio
+        Carga inalámbrica con cargadores MagSafe de hasta 15 W10
+        Carga inalámbrica con cargadores Qi de hasta 7,5 W10
+        Carga por conexión USB con un ordenador o adaptador de corriente
+        Carga rápida: Hasta un 50 % en 30 minutos con un adaptador de 20 W o superior (se vende por separado)`
     },
 
     {
@@ -238,10 +360,50 @@ const DataCelular = [
         name: "Iphone 13",
         img: ["https://ishopmx.vtexassets.com/arquivos/ids/176154-800-auto?v=1762918854&width=800&height=auto&aspect=true", "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone13-Pro-color-lineup-220308_big_carousel.jpg.slideshow-medium_2x.jpg", "https://www.muycomputer.com/wp-content/uploads/2021/09/APERTURA_IPHONE13_PROMAX.jpg"],
         price: 650,
-        descripcion1: ``,
-        descripcion2: ``,
-        descripcion3: ``,
-        descripcion4: ``
+        descripcion1: `Dimensiones y peso
+        Ancho: 7,15 cm
+        Alto: 14,67 cm
+        Grosor: 0,76 cm
+        Peso: 173 g`,
+        descripcion2: `Capacidad
+        128 GB
+        256 GB
+        512 GB`,
+        descripcion3: `Cámara 
+        Sistema de cámara dual de 12 Mpx con gran angular y ultra gran angular
+        Gran angular: apertura de ƒ/1,6
+        Ultra gran angular: apertura de ƒ/2,4 y campo de visión de 120°
+        Zoom óptico de alejamiento x2
+        Zoom digital hasta x5
+        Modo Retrato con efecto bokeh avanzado y Control de Profundidad
+        Iluminación de Retratos con seis efectos (Luz Natural, Luz de Estudio, Luz de Contorno, Luz de Escenario, Luz de Escenario Mono y Luz en Clave Alta Mono)
+        Estabilización óptica de imagen por desplazamiento del sensor (gran angular)
+        Lente de siete elementos (gran angular) y lente de cinco elementos (ultra gran angular)
+        Flash True Tone con sincronización lenta
+        Fotos panorámicas (hasta 63 Mpx)
+        Cubierta de la lente de cristal de zafiro
+        100 % Focus Pixels (gran angular)
+        Modo Noche
+        Deep Fusion
+        HDR Inteligente 4
+        Estilos Fotográficos
+        Gama cromática amplia para fotos y Live Photos
+        Corrección del objetivo (ultra gran angular)
+        Corrección avanzada de ojos rojos
+        Estabilización automática de imagen
+        Modo ráfaga
+        Geoetiquetado de fotos
+        Captura de imagen en formato HEIF y JPEG`,
+        descripcion4: `Batería y alimentación 
+        Reproducción de vídeo: Hasta 19 horas
+        Streaming de vídeo: Hasta 15 horas
+        Reproducción de audio: Hasta 75 horas
+        Batería recargable integrada de iones de litio
+        Carga inalámbrica con cargadores MagSafe de hasta 15 W
+        Carga inalámbrica con cargadores Qi de hasta 7,5 W
+        Carga por conexión USB con un ordenador o adaptador de corriente
+        Carga rápida: Hasta un 50 % en 30 minutos con un adaptador de 20 W o superior (se vende por separado)
+        MagSafe `
     },
 
 
@@ -250,10 +412,47 @@ const DataCelular = [
         name: "Iphone 14",
         img: ["https://www.mgmstore.com.ar/1389-large_default/apple-iPhone-14-Pro-128GB.jpg", "https://http2.mlstatic.com/D_NQ_NP_969141-MLM51559385324_092022-O.jpg", "https://www.faq-mac.com/wp-content/uploads/2022/09/iphone-14-pro-caja-1024x576.jpg"],
         price: 800,
-        descripcion1: ``,
-        descripcion2: ``,
-        descripcion3: ``,
-        descripcion4: ``
+        descripcion1: `Dimensiones y peso
+        Ancho: 7,15 cm
+        Alto: 14,67 cm
+        Grosor: 0,78 cm
+        Peso: 172 g`,
+        descripcion2: `Capacidad
+        128 GB
+        256 GB
+        512 GB`,
+        descripcion3: `Cámara
+        Sistema de cámara dual
+        
+        Principal de 12 Mpx: 26 mm, apertura de ƒ/1,5, estabili­zación óptica de imagen por desplazamiento del sensor, lente de siete elementos y 100 % Focus Pixels
+        Ultra gran angular de 12 Mpx: 13 mm, apertura de ƒ/2,4, campo de visión de 120°, lente de cinco elementos
+        Zoom óptico de alejamiento x2 y zoom digital hasta x5
+        Cubierta de la lente de cristal de zafiro
+        Flash True Tone
+        Photonic Engine
+        Deep Fusion
+        HDR Inteligente 4
+        Modo Retrato con efecto bokeh avanzado y Control de Profundidad
+        Iluminación de Retratos con seis efectos (Luz Natural, Luz de Estudio, Luz de Contorno, Luz de Escenario, Luz de Escenario Mono y Luz en Clave Alta Mono)
+        Modo Noche
+        Fotos panorámicas (hasta 63 Mpx)
+        Estilos Fotográficos
+        Gama cromática amplia para fotos y Live Photos
+        Corrección del objetivo (ultra gran angular)
+        Corrección avanzada de ojos rojos
+        Estabilización automática de imagen
+        Modo ráfaga
+        Geoetiquetado de fotos
+        Captura de imagen en formato HEIF y JPEG`,
+        descripcion4: `Batería y alimentación9
+        Reproducción de vídeo: Hasta 20 horas
+        Streaming de vídeo: Hasta 16 horas
+        Reproducción de audio: Hasta 80 horas
+        Batería recargable integrada de iones de litio
+        Carga inalámbrica con cargadores MagSafe de hasta 15 W11
+        Carga inalámbrica con cargadores Qi de hasta 7,5 W11
+        Carga por conexión USB con un ordenador o adaptador de corriente
+        Carga rápida: Hasta un 50 % en unos 30 minutos10 con un adaptador de 20 W o superior (se vende por separado)`
     },
 ];
 

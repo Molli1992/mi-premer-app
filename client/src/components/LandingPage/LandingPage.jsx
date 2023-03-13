@@ -12,13 +12,6 @@ function LandingPage(props) {
                 <div className="nav-link">
 
                     <ul>
-                        <Link to={"/celulares"}>
-                            <ButtonGroup variant='outline' spacing='6'>
-                                <Button color="black" _hover={{
-                                    transform: 'scale(1.10)',
-                                }}>Home</Button>
-                            </ButtonGroup>
-                        </Link>
                     </ul>
 
                 </div>

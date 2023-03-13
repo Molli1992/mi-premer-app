@@ -3,7 +3,6 @@ import {
     ButtonGroup, Heading, Image, Box, Select
 } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import NavBar from "../NavBar/NavBar";
 import DataCelulares from '../../data/CelularData';
 import { useState } from 'react';
 import axios from "axios";
@@ -66,8 +65,6 @@ function CardDetail(props) {
         return (
 
             <div>
-
-                <NavBar />
 
                 <Box
                     borderWidth="1px"
