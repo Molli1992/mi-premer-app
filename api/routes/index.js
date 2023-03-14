@@ -183,7 +183,95 @@ router.get("/celulares/:id", async (req, res) => {
 
 });
 
+router.post("/celulares", async (req, res) => {
 
+    try {
+
+        const { name, img, price, descripcion1, descripcion2, descripcion3, descripcion4 } = req.body;
+
+        if (name && img && price && descripcion1 && descripcion2 && descripcion3 && descripcion4) {
+
+            const celular = await Celulares.findAll({
+                where: { name: name }
+            });
+
+            if (!celular.length) {
+
+                await Celulares.findOrCreate({
+                    where: {
+                        name: name,
+                        img: img,
+                        price: price,
+                        descripcion1: descripcion1,
+                        descripcion2: descripcion2,
+                        descripcion3: descripcion3,
+                        descripcion4: descripcion4
+                    }
+                });
+
+                return res.status(201).send({ message: "Ceular Creado" });
+
+            } else {
+                return res.status(412).send({ message: "El celular ya existe" });
+            }
+
+        } else {
+
+            return res.status(412).send({ message: "Se requiere informacion" });
+
+        }
+
+    } catch (error) {
+
+        console.log(error)
+
+    }
+
+});
+
+
+router.put("/celulares/:name", async (req, res) => {
+
+    try {
+
+        try {
+            let { name } = req.params;
+            let { img, price, descripcion1, descripcion2, descripcion3, descripcion4 } = req.body;
+
+            const celular = await Celulares.findOne({
+                where: {
+                    name: name
+                }
+            });
+
+            if (!celular) {
+                return res.status(404).json({ msg: "celular no encontrado" });
+            }
+
+            celular.update(
+                {
+                    img: img,
+                    price: price,
+                    descripcion1: descripcion1,
+                    descripcion2: descripcion2,
+                    descripcion3: descripcion3,
+                    descripcion4: descripcion4
+                }
+            );
+
+            res.status(201).json(celular);
+
+        } catch (err) {
+            res.status(401).json({ message: err });
+        };
+
+    } catch (error) {
+
+        console.log(error)
+
+    }
+
+});
 
 
 

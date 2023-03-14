@@ -1,6 +1,5 @@
 [
     {
-        "id": "0",
         "name": "Iphone 3",
         "img": [
             "https://ar.celulares.com/fotos/apple-iphone-3gs-16Gb-462-g.jpg",
@@ -14,7 +13,6 @@
         "descripcion4": "Capacidad: Unidad de flash de 8 GB"
     },
     {
-        "id": "1",
         "name": "Iphone 4",
         "img": [
             "https://ar.celulares.com/fotos/apple-iphone-4-456-g.jpg",
@@ -28,7 +26,6 @@
         "descripcion4": "Capacidad: Unidad flash de 16 o 32 GB"
     },
     {
-        "id": "2",
         "name": "Iphone 5",
         "img": [
             "https://ar.celulares.com/fotos/apple-iphone-5-12801-g.jpg",
@@ -42,7 +39,6 @@
         "descripcion4": "Energía y batería: Batería de litio-ion recargable integrada Carga vía USB a una computadora o a un adaptador de corriente Tiempo de conversación: hasta 8 horas con 3G Tiempo en modo standby: hasta 225 horas Uso de Internet: hasta 8 horas con 3G; hasta 10 horas con Wi-Fi Reproducción de video: hasta 10 horas Reproducción de audio: hasta 40 horas"
     },
     {
-        "id": "3",
         "name": "Iphone 6",
         "img": [
             "https://ar.celulares.com/fotos/apple-iPhone-6-30471-g.jpeg",
@@ -56,7 +52,6 @@
         "descripcion4": "Batería y alimentación: Batería recargable integrada de iones de litio Carga por conexión USB con un ordenador o adaptador de corriente Tiempo en conversación: hasta 14 horas con 3G Navegación por Internet: hasta 10 horas con 3G, hasta 10 horas con 4G LTE y hasta 11 horas con Wi‑Fi Reproducción de vídeo en HD: hasta 11 horas Reproducción de audio: hasta 50 horas Tiempo en reposo: hasta 10 días (250 horas)"
     },
     {
-        "id": "4",
         "name": "Iphone 7",
         "img": [
             "https://mobomx.vteximg.com.br/arquivos/ids/169338/telefono-seminuevo-iph-7-plus-32gb-5-5-negro-mate-desbloqueado-grado-c-ml-portada-01.jpg?v=638094625155100000",
@@ -70,7 +65,6 @@
         "descripcion4": "Energía y batería: Hasta 2 horas más de batería que el iPhone 6 Tiempo de conversación (con audífonos inalámbricos): Hasta 14 horas con 3 Tiempo en espera: Hasta 10 día Uso de Internet: Hasta 12 horas con 3G, hasta 12 horas con 4G LTE, hasta 14 horas con Wi-F Reproducción de video con audio vía audífonos inalámbricos: Hasta 13 hora Reproducción de audio con audífonos inalámbricos: Hasta 40 hora Batería de iones de litio recargable integrad Carga mediante el puerto USB de un computador o con un adaptador de corriente"
     },
     {
-        "id": "5",
         "name": "Iphone 8",
         "img": [
             "https://www.apple.com/newsroom/images/product/iphone/standard/iphone8_iphone8plus_product_red_front_back_041018_big.jpg.large.jpg",
@@ -84,7 +78,6 @@
         "descripcion4": "Bateria: Tiempo de conversación (con audífonos inalámbricos): Hasta 21 horas. Uso de Internet: Hasta 13 horas. Reproducción de video (con audífonos inalámbricos): Hasta 14 horas. Reproducción de audio (con audífonos inalámbricos): Hasta 60 horas. Carga rápida: Hasta un 50% de carga en 30 minutos"
     },
     {
-        "id": "6",
         "name": "Iphone 9",
         "img": [
             "https://cdn1.smartprix.com/rx-icTFlmIiF-w1200-h1200/cTFlmIiF.jpg",
@@ -98,7 +91,6 @@
         "descripcion4": "BATERÍA Li-Po, no extraíble"
     },
     {
-        "id": "7",
         "name": "Iphone 10",
         "img": [
             "https://www.apple.com/newsroom/images/product/iphone/standard/iphonex_front_back_glass_big.jpg.large.jpg",
@@ -112,7 +104,6 @@
         "descripcion4": "Energía y batería Hasta 2 horas más de batería que el iPhone 7 Tiempo de conversación (con audífonos inalámbricos): Hasta 21 horas Uso de Internet: Hasta 12 horas Reproducción de video (con audio vía audífonos inalámbricos): Hasta 13 horas Reproducción de audio (con audífonos inalámbricos): Hasta 60 horas Carga rápida: Puede cargar hasta el 50% de la batería en 30 minutos Batería de iones de litio recargable integrada Carga inalámbrica (compatible con cargadores con certificación Qi9) Carga mediante el puerto USB de una computadora o con un adaptador de corriente"
     },
     {
-        "id": "8",
         "name": "Iphone 11",
         "img": [
             "https://http2.mlstatic.com/D_NQ_NP_956760-MLA46114829866_052021-O.jpg",
@@ -126,7 +117,6 @@
         "descripcion4": "Batería y alimentaciónReproducción de vídeo: Hasta 17 horasReproducción de vídeo (en streaming): Hasta 10 horasReproducción de audio: Hasta 65 horasCarga rápida: Hasta un 50 % de carga en 30 minutos10 con un adaptador de 20 W o superior (se vende por separado)Batería recargable integrada de iones de litioCarga inalámbrica (funciona con cargadores Qi)Carga por conexión USB con un ordenador o adaptador de corriente"
     },
     {
-        "id": "9",
         "name": "Iphone 12",
         "img": [
             "https://m.media-amazon.com/images/I/71fVoqRC0wL._AC_UF1000,1000_QL80_.jpg",
@@ -140,7 +130,6 @@
         "descripcion4": "Batería y alimentaciónReproducción de vídeo: Hasta 17 horasStreaming de vídeo: Hasta 11 horasReproducción de audio: Hasta 65 horasBatería recargable integrada de iones de litioCarga inalámbrica con cargadores MagSafe de hasta 15 W10Carga inalámbrica con cargadores Qi de hasta 7,5 W10Carga por conexión USB con un ordenador o adaptador de corrienteCarga rápida: Hasta un 50 % en 30 minutos con un adaptador de 20 W o superior (se vende por separado)"
     },
     {
-        "id": "10",
         "name": "Iphone 13",
         "img": [
             "https://ishopmx.vtexassets.com/arquivos/ids/176154-800-auto?v=1762918854&width=800&height=auto&aspect=true",
@@ -154,7 +143,6 @@
         "descripcion4": "Batería y alimentación Reproducción de vídeo: Hasta 19 horas Streaming de vídeo: Hasta 15 horas Reproducción de audio: Hasta 75 horas Batería recargable integrada de iones de litio Carga inalámbrica con cargadores MagSafe de hasta 15 W Carga inalámbrica con cargadores Qi de hasta 7, 5 W Carga por conexión USB con un ordenador o adaptador de corriente Carga rápida: Hasta un 50 % en 30 minutos con un adaptador de 20 W o superior (se vende por separado) MagSafe"
     },
     {
-        "id": "11",
         "name": "Iphone 14",
         "img": [
             "https://www.mgmstore.com.ar/1389-large_default/apple-iPhone-14-Pro-128GB.jpg",
