@@ -6,7 +6,6 @@ module.exports = (sequelize) => {
     sequelize.define('usuarios', {
         first_name: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         last_name: {
             type: DataTypes.STRING,
@@ -14,15 +13,12 @@ module.exports = (sequelize) => {
         date_birth: {
             type: DataTypes.STRING,
         },
-        user_password: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         nationality: {
             type: DataTypes.STRING
         },
         email: {
             type: DataTypes.STRING,
+            allowNull: false
         },
         img: {
             type: DataTypes.STRING,
